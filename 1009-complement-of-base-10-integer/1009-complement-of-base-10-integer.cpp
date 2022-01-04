@@ -29,15 +29,15 @@ public:
         //M2 Logic
         // here we are collecting zero bits (of position jths )one by one by shifting n to right & raising it to the power of j and addding it . Now why zero bits ?? because after complementing the n zero bits will become oneans thus contribute to ower ans 
         
-        int ans = 0  , j = 0 ; 
-        while(n) {
-            if( (n&1)==0 ) 
-                ans += 1<<j ;
-                n >>= 1;
-                j++ ;
+//         int ans = 0  , j = 0 ; 
+//         while(n) {
+//             if( (n&1)==0 ) 
+//                 ans += 1<<j ;
+//                 n >>= 1;
+//                 j++ ;
             
-        }
-        return ans ;
+//         }
+//         return ans ;
         
 
         
@@ -46,7 +46,7 @@ public:
         
         
                 //M3
-         // return (pow(2,floor(log2(num))+1)-1)-num;
+          return (pow(2 , floor(log2(n))+1 ) - 1 ) - n ;
 //         Here, floor(log2(num))+1 gives us the number of bits in integer num.
 // The maximum value obtained with this number of bits is pow(2,no of bits)-1.
 // When we subtract from maximum value to the given input will gives the complement of given input.
