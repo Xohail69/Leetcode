@@ -46,15 +46,15 @@ public:
         
         
                 //M3
-          return (pow(2 , floor(log2(n))+1 ) - 1 ) - n ;
+         // return (pow(2 , floor(log2(n))+1 ) - 1 ) - n ;
 //         Here, floor(log2(num))+1 gives us the number of bits in integer num.
 // The maximum value obtained with this number of bits is pow(2,no of bits)-1.
 // When we subtract from maximum value to the given input will gives the complement of given input.
         
         //M4 https://leetcode.com/problems/number-complement/discuss/1649574/C%2B%2B-EASY-TO-SOLVE-oror-Different-Variations-of-code-with-detailed-exaplanations
-//         unsigned mask = ~0 ;
-//         while(mask & num ) mask <<=1 ;
-//         return ~num ^ mask ; 
+        unsigned mask = ~0 ;
+        while(mask & n ) mask <<=1 ;
+        return ~n ^ mask ; 
 // //         Time Complexity: O(a9ut most 32bits to move) = O(1)
 // // Space Complexity: O(1)
       
