@@ -5,23 +5,23 @@ public:
         string s ;
      
         ///Using Two Prs 
-        int i(0) , j(0)  ;
-        while ( i < n or j < m ) {
-            if(i < n ) s += w1[i++] ;
-            if(j < m ) s += w2[j++] ;
-        }
+//         int i(0) , j(0)  ;
+//         while ( i < n or j < m ) {
+//             if(i < n ) s += w1[i++] ;
+//             if(j < m ) s += w2[j++] ;
+//         }
         
-        return s ;
+//         return s ;
         
         
         //Using One Pr
        
-//         for(int i = 0 ; i < max(n , m ) ; i++ ) {
-//             if(i < n ) s += w1[i] ;
-//             if(i < m ) s += w2[i] ;
+        for(int i = 0 ; i < max(n , m ) ; i++ ) {
+            if(i < n ) s += w1[i] ;
+            if(i < m ) s += w2[i] ;
             
-//         }
-//         return s ;
+        }
+        return s ;
         
         
         
