@@ -16,12 +16,12 @@ public:
 // bitwiseComplement(N) = N ^ X
 //             We construct a XOR mask from all ones until it's larger or equal than the number. For example, for 100101, the mask will be 111111. And for 1111, the mask will be 1111.
         
-            int X(0) , j(0) ;
-        while(X < n) {
-            X += 1<<j ;
-            j++ ;
-        }
-        return X-n ;
+        //     int X(0) , j(0) ;
+        // while(X < n) {
+        //     X += 1<<j ;
+        //     j++ ;
+        // }
+        // return X-n ;
         //or
        // return X^n ;
         
@@ -29,16 +29,17 @@ public:
         //M2 Logic
         // here we are collecting zero bits (of position jths )one by one by shifting n to right & raising it to the power of j and addding it . Now why zero bits ?? because after complementing the n zero bits will become oneans thus contribute to ower ans 
         
-//         int ans = 0  , j = 0 ; 
-//         while(n) {
-//             if( (n&1)==0 ) {
-//                 ans += 1<<j ;
-//                 n >>= 1;
-//                 j++ ;
-//             }
-//         }
-//         return ans ;
+        int ans = 0  , j = 0 ; 
+        while(n) {
+            if( (n&1)==0 ) 
+                ans += 1<<j ;
+                n >>= 1;
+                j++ ;
+            
+        }
+        return ans ;
         
+
         
         
         
