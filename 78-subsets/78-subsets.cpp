@@ -23,7 +23,15 @@ public:
         
         
         //More simple & cool solution 
+        //Intuition:-
+        //Using [1, 2, 3] as an example, the iterative process is like:
+
+// Initially, one empty subset [[]]
+// Adding 1 to []: [[], [1]];
+// Adding 2 to [] and [1]: [[], [1], [2], [1, 2]];
+// Adding 3 to [], [1], [2] and [1, 2]: [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]].
         //https://leetcode.com/problems/subsets/discuss/27511/C%2B%2B-8ms-simple-iterative-solution
+        
         vector<vector<int>> ans(1 , vector<int>() ) ;
        
         for(int i = 0 ; i < nums.size() ; i++ ) {
