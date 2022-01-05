@@ -25,7 +25,7 @@ public:
         //More simple & cool solution 
         //https://leetcode.com/problems/subsets/discuss/27511/C%2B%2B-8ms-simple-iterative-solution
         vector<vector<int>> ans(1 , vector<int>() ) ;
-        sort(begin(nums) , end(nums) ) ;
+       
         for(int i = 0 ; i < nums.size() ; i++ ) {
             int n = ans.size() ;
             for(int j = 0 ; j < n  ; j++  ) {
