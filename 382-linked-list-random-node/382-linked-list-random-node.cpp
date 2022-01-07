@@ -16,27 +16,28 @@ public:
     
     
     Solution(ListNode* head) {
-       
+       //M1
         // HEAD = head ;
         // while(head) {
         //     l++ ; head = head->next ;
         // }
         
         
-       
+       //M2
          ListNode* p = head ;
         for( ; p ; p = p->next ) v.push_back(p->val) ;
         
     }
     
     int getRandom() {
+        //M1 
         // int idx = rand()%l ;
         // ListNode* t = HEAD ;
         // for(int i = 0 ; i < idx ; i++ ) { t= t->next ; }
         // return t->val ;
         
         
-        
+        //M2 using extra space
         int idx = rand()%v.size() ;
         return v[idx] ;
         
