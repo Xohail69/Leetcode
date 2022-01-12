@@ -23,27 +23,27 @@ public:
         
         
         //Iterative
-         if(!root) return new TreeNode(val);
+//          if(!root) return new TreeNode(val);
         
-        auto curr = root;
+//         auto curr = root;
         
-        while(curr){
-            if(curr->val < val){
-                if(curr->right) curr = curr->right;
-                else {
-                    curr->right = new TreeNode(val);
-                    break;
-                }
-            }
-            else{
-                if(curr->left) curr = curr->left;
-                else{
-                    curr->left = new TreeNode(val);
-                    break;
-                }
-            }
-        }
-        return root;
+//         while(curr){
+//             if(curr->val < val){
+//                 if(curr->right) curr = curr->right;
+//                 else {
+//                     curr->right = new TreeNode(val);
+//                     break;
+//                 }
+//             }
+//             else{
+//                 if(curr->left) curr = curr->left;
+//                 else{
+//                     curr->left = new TreeNode(val);
+//                     break;
+//                 }
+//             }
+//         }
+//         return root;
         
         
         
@@ -52,11 +52,11 @@ public:
         
         //same iterative but more compact 
         
-		// TreeNode **cur = &root;
-		// while( *cur )
-		// 	cur = (val > (*cur)->val) ? &(*cur)->right : &(*cur)->left;
-		// *cur = new TreeNode(val);
-		// return root;
+		TreeNode **cur = &root;
+		while( *cur )
+			cur = (val > (*cur)->val) ? &(*cur)->right : &(*cur)->left;
+		*cur = new TreeNode(val);
+		return root;
         
         
         
