@@ -27,7 +27,7 @@ public:
         
         auto curr = root;
         
-        while(true){
+        while(curr){
             if(curr->val < val){
                 if(curr->right) curr = curr->right;
                 else {
