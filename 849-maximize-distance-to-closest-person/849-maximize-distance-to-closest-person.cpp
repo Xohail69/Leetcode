@@ -25,7 +25,7 @@ public:
         
         
         
-    
+    //More better than above 
 //         If the current value is "0", keep going forward.
 // Left pointer points to the position of left "1" and right pointer points to the position of right "1". Keep updating two pointers and calculate the max distance.
 // Be careful of two situations: seats[0] is 0 and seats[len - 1] is 0. Just check them and get the final answer. Ex: 00101000.
