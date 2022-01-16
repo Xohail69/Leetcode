@@ -20,29 +20,29 @@ public:
       //    return (left_depth > right_depth) ? left_depth +1 :  right_depth +1;
         
     //above code can also be written in one line as 
- return !root ? 0 : max(maxDepth(root->left) , maxDepth(root->right) ) + 1 ;
+ //return !root ? 0 : max(maxDepth(root->left) , maxDepth(root->right) ) + 1 ;
         
         
         
         
         
         //Using Level order traversal 
-//         if(!root) return 0 ;
-//         int ans = 0 ; 
-//         queue<TreeNode*> q ;
-//         q.push(root) ;
-//         while( !q.empty() ){
-//             ans++ ;
-//             for(int i =0 ; i < q.size() ; i++ )  {
-//                 TreeNode *p = q.front() ;
-//                 q.pop() ;
-//                 if(p->left) q.push(p->left) ;
-//                 if(p->right) q.push(p->right) ;
-//             }
-//         }
-//         return ans ;
+        if(!root) return 0 ;
+        int ans = 0 ; 
+        queue<TreeNode*> q ;
+        q.push(root) ;
+        while( !q.empty() ){
+            ans++ ;
+            for(int i =0 , n = q.size() ; i <  n  ; i++ )  {
+                TreeNode *p = q.front() ;
+                q.pop() ;
+                if(p->left) q.push(p->left) ;
+                if(p->right) q.push(p->right) ;
+            }
+        }
+        return ans ;
         
-        
+   
         
         
         
