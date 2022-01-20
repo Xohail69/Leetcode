@@ -41,7 +41,7 @@ class Solution{
             
             
         }
-        else return INT_MAX ;
+        return INT_MAX ;
         
         
         
