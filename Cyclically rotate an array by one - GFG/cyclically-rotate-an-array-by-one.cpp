@@ -32,11 +32,11 @@ void rotate(int a[], int n)
 {
     /* reverse(a,a+n);
     reverse(a+1,a+n);*/
-    int temp = a[n-1];
-    for(int i = n-1 ; i>0 ;i--){
-        a[i] = a[i-1];
-    }
-    a[0]=temp ;
-
+    // int temp = a[n-1];
+    // for(int i = n-1 ; i>0 ;i--){
+    //     a[i] = a[i-1];
+    // }
+    // a[0]=temp ;
+    rotate(a , a+n-1 , a+n) ;
     
 }
