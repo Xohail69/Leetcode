@@ -39,36 +39,37 @@ public:
         // return res ;
         
         //this recursive M2 can be replaced by iteration as folllows :
-         vector<int> ans;
-        for(int u=1;u<=8;u++){
-            int num = u;
-            for(int j=u+1;j<=9;j++){
-                num = num*10+j;
-                if(num>=low && num <=high) ans.push_back(num);
-            }
-        }
-        sort(ans.begin(), ans.end());
-        return ans;
+        //Best among all in space & time 
+//          vector<int> ans;
+//         for(int u=1;u<=8;u++){
+//             int num = u;
+//             for(int j=u+1;j<=9;j++){
+//                 num = num*10+j;
+//                 if(num>=low && num <=high) ans.push_back(num);
+//             }
+//         }
+//         sort(ans.begin(), ans.end());
+//         return ans;
         
         
         
         //M3 using strings and sliding window
-//          string digit = "123456789";
-//           vector<int> result;
-//           int lenMin = to_string(low).size();
-//           int lenMax = to_string(high).size();
-//           for (int i = lenMin; i <= lenMax; i++)
-//           {
-//                for (int j = 0; j < 10 - i; j++)
-//                {
-//                     int num = stoi(digit.substr(j, i));
-//                     if (num >= low and num <= high)
-//                     {
-//                          result.push_back(num);
-//                     }
-//                }
-//           }
-//           return result;
+         string digit = "123456789";
+          vector<int> result;
+          int lenMin = to_string(low).size();
+          int lenMax = to_string(high).size();
+          for (int i = lenMin; i <= lenMax; i++)
+          {
+               for (int j = 0; j < 10 - i; j++)
+               {
+                    int num = stoi(digit.substr(j, i));
+                    if (num >= low and num <= high)
+                    {
+                         result.push_back(num);
+                    }
+               }
+          }
+          return result;
         
         
         
