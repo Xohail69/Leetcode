@@ -33,22 +33,22 @@ public:
         //M2 Using Rec keep generating the number till it lies in the given range 
         //O(nlogn)
         //https://leetcode.com/problems/sequential-digits/discuss/1711942/C%2B%2B-DFS-with-diagram-or-Basic-0-ms
-        res = {} ;
-        for(int i = 1 ; i <= 9  ; i++ ) dfs(low , high , i , 0) ;
-            sort(res.begin() , end(res)) ;
-        return res ;
+        // res = {} ;
+        // for(int i = 1 ; i <= 9  ; i++ ) dfs(low , high , i , 0) ;
+        //     sort(res.begin() , end(res)) ;
+        // return res ;
         
         //this recursive M2 can be replaced by iteration as folllows :
-//          vector<int> ans;
-//         for(int u=1;u<=8;u++){
-//             int num = u;
-//             for(int j=u+1;j<=9;j++){
-//                 num = num*10+j;
-//                 if(num>=low && num <=high) ans.push_back(num);
-//             }
-//         }
-//         sort(ans.begin(), ans.end());
-//         return ans;
+         vector<int> ans;
+        for(int u=1;u<=8;u++){
+            int num = u;
+            for(int j=u+1;j<=9;j++){
+                num = num*10+j;
+                if(num>=low && num <=high) ans.push_back(num);
+            }
+        }
+        sort(ans.begin(), ans.end());
+        return ans;
         
         
         
