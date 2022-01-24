@@ -21,27 +21,27 @@ public:
         
         
         
-        int n = nums.size() , k  , l ;
+//         int n = nums.size() , k  , l ;
         
-        for(k = n - 2 ; k >= 0 ; k--) { 
-            if(nums[k] < nums[k+1] ) break ; //Finding the index needed to be swapped.
-        }
+//         for(k = n - 2 ; k >= 0 ; k--) { 
+//             if(nums[k] < nums[k+1] ) break ; //Finding the index needed to be swapped.
+//         }
         
-        if(k < 0) reverse(nums.begin() , nums.end()) ; // Permutation is in descending order. Sort it to ascending order.
-        else {
+//         if(k < 0) reverse(nums.begin() , nums.end()) ; // Permutation is in descending order. Sort it to ascending order.
+//         else {
             
-            for(l = n - 1 ; l > k ; l-- ) {
-                if(nums[l] > nums[k] ) break ;//Finding the number just greater than at index needed to be swapped.
-            }
-            swap(nums[k] , nums[l]) ;
-            reverse(nums.begin() + k + 1 , nums.end()) ;            
+//             for(l = n - 1 ; l > k ; l-- ) {
+//                 if(nums[l] > nums[k] ) break ;//Finding the number just greater than at index needed to be swapped.
+//             }
+//             swap(nums[k] , nums[l]) ;
+//             reverse(nums.begin() + k + 1 , nums.end()) ;            
             
-        }
+//         }
         
         
         
        //One liner using STL
-       // next_permutation(begin(nums) , end(nums)) ;
+        next_permutation(begin(nums) , end(nums)) ;
         
 //         //M3 using STL 
 //         auto i = is_sorted_until(nums.rbegin(), nums.rend());
