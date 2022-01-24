@@ -5,6 +5,7 @@ public:
     }
     
     bool detectCapitalUse(string word) {
+        //M1
 //         int c = 0  ; 
 //         for (auto x : word ) {
 //             if( iscap(x) ) c++  ;
@@ -17,28 +18,28 @@ public:
 //         if(c > 1 and c < word.size() ) return 0 ;
 //         else return 1 ;
         
+        //M2
+//          bool firstCaps = isupper(word[0]), allCaps = true, allSmall = true;
+//         for(int i=1;i<word.size();i++){
+//             if(isupper(word[i])){
+//                 allSmall = false;
+//             }else{
+//                 allCaps = false;
+//             }
+//         }
+//         return ( firstCaps && allCaps) || allSmall ;
         
-         bool firstCaps = isupper(word[0]), allCaps = true, allSmall = true;
-        for(int i=1;i<word.size();i++){
-            if(isupper(word[i])){
-                allSmall = false;
-            }else{
-                allCaps = false;
+        
+        
+        
+        
+        
+        //M3
+         for(int i = 1; i < word.size(); i++){
+        if(isupper(word[1]) != isupper(word[i]) || 
+           islower(word[0]) && isupper(word[i])) return false;
             }
-        }
-        return ( firstCaps && allCaps) || allSmall ;
-        
-        
-        
-        
-        
-        
-        
-        //  for(int i = 1; i < word.size(); i++){
-        // if(isupper(word[1]) != isupper(word[i]) || 
-        //    islower(word[0]) && isupper(word[i])) return false;
-        //     }
-        // return true ;
+        return true ;
 //         if(isupper(word[1]) != isupper(word[i])) return false;
 // This code checks if all are upper case AND check if all are lower case.
 // You can also replace it by if(islower(word[1]) != islower(word[i])) return false;
