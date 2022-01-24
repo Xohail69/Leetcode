@@ -51,13 +51,13 @@ public:
         
         
        //One liner using STL
-       // next_permutation(begin(nums) , end(nums)) ;
+        next_permutation(begin(nums) , end(nums)) ;
         
 //         //M3 using STL 
-        auto i = is_sorted_until(nums.rbegin(), nums.rend());
-    if (i != nums.rend())
-        swap(*i, *upper_bound(nums.rbegin(), i, *i));
-    reverse(nums.rbegin(), i);
+    //     auto i = is_sorted_until(nums.rbegin(), nums.rend());
+    // if (i != nums.rend())
+    //     swap(*i, *upper_bound(nums.rbegin(), i, *i));
+    // reverse(nums.rbegin(), i);
         
         return nums ;
         
