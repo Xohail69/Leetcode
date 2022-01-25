@@ -11,15 +11,15 @@ class Solution
         {//Let the current element traversed in A[] be x, in B[] be y 
         // and in C[] be z
             //code here.
-            set<int> ans ;
+            vector<int> ans ;
             int i , j , k  ; 
             i =  j  = k = 0 ;
            while(i < n1 and j < n2 and k <n3 ) {
                //all are equal 
                if(A[i] == B[j] and B[j] == C[k]){
-                //  if(find(ans.begin() , ans.end() , A[i]) != ans.end()) 
-                //  ans.push_back(A[i]) ;
-                ans.insert(A[i])  ;
+                 if(find(ans.begin() , ans.end() , A[i]) == ans.end()) 
+                 ans.push_back(A[i]) ;
+               
                    i++ ; j++ ; k++ ;
                }
                //x < y
@@ -29,9 +29,9 @@ class Solution
                //x > y and z < y i.e z is smallest
                else k++ ;
             } 
-      //for(auto x :ans) cout<<x<<" " ;
       
-            return vector<int>(ans.begin() , ans.end()) ;
+      
+            return ans ;
             
             
             
