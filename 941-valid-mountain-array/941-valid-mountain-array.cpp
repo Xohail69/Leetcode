@@ -2,16 +2,16 @@ class Solution {
 public:
     bool validMountainArray(vector<int>& a) {
     //Let's walk up from left to right until we can't: that has to be the peak. We should ensure the peak is not the first or last element. Then, we walk down. If we reach the end, the array is valid, otherwise its not.
-        int n = a.size()  , i = 0 ; 
-        //walk up 
-        while(i+1 < n and a[i] < a[i+1] ) i++ ;
+//         int n = a.size()  , i = 0 ; 
+//         //walk up 
+//         while(i+1 < n and a[i] < a[i+1] ) i++ ;
         
-        //peak can't be first or last 
-        if(i == 0 or i == n-1) return 0 ;
+//         //peak can't be first or last 
+//         if(i == 0 or i == n-1) return 0 ;
         
-        //walk down 
-        while(i + 1 < n and a[i] > a[i+1] ) i++ ;
-        return i == n-1 ;
+//         //walk down 
+//         while(i + 1 < n and a[i] > a[i+1] ) i++ ;
+//         return i == n-1 ;
         
         
         
@@ -28,22 +28,22 @@ public:
     
     
     
-//      if(a.size() < 3) return false;
+     if(a.size() < 3) return false;
 		
-//         int n = a.size() , L = 0, R = n-1;
-//         while(L < n-1) {
-//             if(a[L] < a[L+1]) L++;
-//             else break;
-//         }
+        int n = a.size() , L = 0, R = n-1;
+        while(L < n-1) {
+            if(a[L] < a[L+1]) L++;
+            else break;
+        }
         
-//         if(L == n-1) return false; // only strictly increasing -> 0 1 2 5 6 8 9
+        if(L == n-1) return false; // only strictly increasing -> 0 1 2 5 6 8 9
         
-//         while(R > 0) {
-//             if(a[R] < a[R-1]) R--;
-//             else break;
-//         }
-//         if(R == 0) return false; // only strictly decreasing -> 9 6 5 3 2 1 0
-//         return L == R;
+        while(R > 0) {
+            if(a[R] < a[R-1]) R--;
+            else break;
+        }
+        if(R == 0) return false; // only strictly decreasing -> 9 6 5 3 2 1 0
+        return L == R;
         
         
         
