@@ -28,22 +28,22 @@ public:
     
     
     
-     if(a.size() < 3) return false;
+//      if(a.size() < 3) return false;
 		
-        int n = a.size() , L = 0, R = n-1;
-        while(L < n-1) {
-            if(a[L] < a[L+1]) L++;
-            else break;
-        }
+//         int n = a.size() , L = 0, R = n-1;
+//         while(L < n-1) {
+//             if(a[L] < a[L+1]) L++;
+//             else break;
+//         }
         
-        if(L == n-1) return false; // only strictly increasing -> 0 1 2 5 6 8 9
+//         if(L == n-1) return false; // only strictly increasing -> 0 1 2 5 6 8 9
         
-        while(R > 0) {
-            if(a[R] < a[R-1]) R--;
-            else break;
-        }
-        if(R == 0) return false; // only strictly decreasing -> 9 6 5 3 2 1 0
-        return L == R;
+//         while(R > 0) {
+//             if(a[R] < a[R-1]) R--;
+//             else break;
+//         }
+//         if(R == 0) return false; // only strictly decreasing -> 9 6 5 3 2 1 0
+//         return L == R;
         
         
         
@@ -53,10 +53,10 @@ public:
 //         Two people climb from left and from right separately.
 // If they are climbing the same mountain,
 // they will meet at the same point.
-//        int n = A.size(), i = 0, j = n - 1;
-//         while (i + 1 < n && A[i] < A[i + 1]) i++;
-//         while (j > 0 && A[j - 1] > A[j]) j--;
-//         return i > 0 && i == j && j < n - 1;
+       int n = a.size(), i = 0, j = n - 1;
+        while (i + 1 < n && a[i] < a[i + 1]) i++;
+        while (j > 0 && a[j - 1] > a[j]) j--;
+        return i > 0 && i == j && j < n - 1;
 
 
         
