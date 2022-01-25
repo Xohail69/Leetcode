@@ -14,12 +14,29 @@ class Solution
             vector<int> ans ;
             int i , j , k  ; 
             i =  j  = k = 0 ;
-           while(i < n1 and j < n2 and k <n3 ) {
+        //   while(i < n1 and j < n2 and k <n3 ) {
+        //       //all are equal 
+        //       if(A[i] == B[j] and B[j] == C[k]){
+        //          if(find(ans.begin() , ans.end() , A[i]) == ans.end()) 
+        //          ans.push_back(A[i]) ;
+               
+        //           i++ ; j++ ; k++ ;
+        //       }
+        //       //x < y
+        //       else if(A[i] < B[j] ) i++ ;
+        //       // y < z
+        //       else if (B[j] < C[k] ) j++ ;
+        //       //x > y and z < y i.e z is smallest
+        //       else k++ ;
+        //     } 
+        //     return ans ;
+            
+            
+            //without using find 
+             while(i < n1 and j < n2 and k <n3 ) {
                //all are equal 
                if(A[i] == B[j] and B[j] == C[k]){
-                 if(find(ans.begin() , ans.end() , A[i]) == ans.end()) 
                  ans.push_back(A[i]) ;
-               
                    i++ ; j++ ; k++ ;
                }
                //x < y
@@ -28,9 +45,9 @@ class Solution
                else if (B[j] < C[k] ) j++ ;
                //x > y and z < y i.e z is smallest
                else k++ ;
+               int pre=A[i-1];
+                while(A[i]==pre) i++;
             } 
-      
-      
             return ans ;
             
             
