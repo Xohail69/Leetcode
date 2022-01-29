@@ -1,5 +1,5 @@
 # Reverse words in a given string
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a String&nbsp;S, reverse the&nbsp;string without reversing its&nbsp;individual words. Words are separated by&nbsp;dots.</span></p>
 
