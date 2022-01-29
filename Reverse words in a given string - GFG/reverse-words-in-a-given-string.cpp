@@ -10,18 +10,57 @@ class Solution
     public:
     //Function to reverse words in a given string.
     string reverseWords(string s) 
-    {
-            reverse(s.begin() , s.end()) ;
-
-            auto p = s.begin() ;
-            for(auto it = s.begin() ; it != s.end() ; it++ ) {
-                if( *it == '.') {
-                    reverse(p , it) ;
-                    p = it + 1  ;
+    {       //M1 using iterators 
+            // reverse(s.begin() , s.end()) ;
+            // auto p = s.begin() ;
+            // for(auto it = s.begin() ; it != s.end() ; it++ ) {
+            //     if( *it == '.') {
+            //         reverse(p , it) ;
+            //         p = it + 1  ;
+            //     }
+            // }
+            // reverse(p , s.end()) ;
+            // return s; 
+            
+            
+            //M2 using extra space
+            vector<string> t ;
+            string str  ;
+            for(auto x : s ) {
+                if(x == '.') {
+                    t.push_back(str) ;
+                    str = "" ;
+                    
                 }
+                else str += x ;
             }
-            reverse(p , s.end()) ;
-            return s; 
+            t.push_back(str) ;
+            str = "" ;
+            for(auto it = t.rbegin()  ; it != t.rend() ;it++ ) {
+                str += *it + '.' ;
+            }
+            str.pop_back() ;
+            return str ;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
         // code here 
     } 
