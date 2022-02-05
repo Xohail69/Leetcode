@@ -44,76 +44,76 @@ public:
         
         
         
-        //M2 using PQ 
-        if(lists.empty()) return NULL ; 
-        auto comp = [&](ListNode *a , ListNode *b) {
-            return a->val > b->val ;
-        };
-        // This priority queue is our MIN HEAP
-        priority_queue<ListNode* , vector<ListNode*> , decltype(comp)> pq(comp) ;
+//         //M2 using PQ 
+//         if(lists.empty()) return NULL ; 
+//         auto comp = [&](ListNode *a , ListNode *b) {
+//             return a->val > b->val ;
+//         };
+//         // This priority queue is our MIN HEAP
+//         priority_queue<ListNode* , vector<ListNode*> , decltype(comp)> pq(comp) ;
         
-        /* We iterate the list of LinkedLists and add the head
-        * of every list to the heap (the heap becomes of size k)
-        */
-        for(auto &l : lists)
-        {
-            if(l) pq.push(l) ;
-        }
+//         /* We iterate the list of LinkedLists and add the head
+//         * of every list to the heap (the heap becomes of size k)
+//         */
+//         for(auto &l : lists)
+//         {
+//             if(l) pq.push(l) ;
+//         }
         
-        ListNode dummy(-1) , *tail = &dummy ;
-         // Simply start popping the nodes from the heap and keep adding them to the list;
-        while( !pq.empty() ) {
-             // Pop the top element and store it in t
-            auto t = pq.top() ; 
-            pq.pop() ;
+//         ListNode dummy(-1) , *tail = &dummy ;
+//          // Simply start popping the nodes from the heap and keep adding them to the list;
+//         while( !pq.empty() ) {
+//              // Pop the top element and store it in t
+//             auto t = pq.top() ; 
+//             pq.pop() ;
             
-             // Add it to the list
-            tail->next = t ; 
+//              // Add it to the list
+//             tail->next = t ; 
             
-             // Move the tail to the newly added element
-            tail = tail->next ; 
+//              // Move the tail to the newly added element
+//             tail = tail->next ; 
             
             
-            // if there are more nodes attached to this node in the list
-            // Push the next node of the list into the heap
-            if(tail->next) pq.push(tail->next) ;
-        }
-        tail->next = NULL;
+//             // if there are more nodes attached to this node in the list
+//             // Push the next node of the list into the heap
+//             if(tail->next) pq.push(tail->next) ;
+//         }
+//         tail->next = NULL;
         
         
-        // We used the dummy to keep track of the start of the list.
-        return dummy.next ;
+//         // We used the dummy to keep track of the start of the list.
+//         return dummy.next ;
         
         
         
         
         
         //M3 using map
-//              map<int, int> nodes;
+             map<int, int> nodes;
         
-//         // Add all nodes of all the LinkedLists to the map with
-//         // with the ListNode->val as the key & that value's frequency as the mapped value
-//         for(int i = 0; i < lists.size(); ++i){
-//             auto node = lists[i];
-//             while(node){
-//                 int temp = node->val;
-//                 nodes[temp]++;
-//                 node = node->next;
-//             }
-//         }
+        // Add all nodes of all the LinkedLists to the map with
+        // with the ListNode->val as the key & that value's frequency as the mapped value
+        for(int i = 0; i < lists.size(); ++i){
+            auto node = lists[i];
+            while(node){
+                int temp = node->val;
+                nodes[temp]++;
+                node = node->next;
+            }
+        }
         
-//         ListNode dummyHead(0);
-//         ListNode* tail = &dummyHead;
+        ListNode dummyHead(0);
+        ListNode* tail = &dummyHead;
         
-//         for(auto it: nodes){
-//             while(it.second != 0){
-//                 ListNode* newNode= new ListNode(it.first);
-//                 tail->next = newNode;
-//                 tail = tail->next;
-//                 it.second--;
-//             }
-//         }
-//         return dummyHead.next;
+        for(auto it: nodes){
+            while(it.second != 0){
+                ListNode* newNode= new ListNode(it.first);
+                tail->next = newNode;
+                tail = tail->next;
+                it.second--;
+            }
+        }
+        return dummyHead.next;
         
         
         
