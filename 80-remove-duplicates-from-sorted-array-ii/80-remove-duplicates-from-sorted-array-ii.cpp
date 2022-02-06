@@ -2,12 +2,12 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& A) {
         
-        if(A.size() < 3 ) return A.size() ;
-         int idx = 2;
-        for (int j = 2; j < A.size( ) ; j++)
-            if (A[j] != A[idx-2])
-                A[idx++] = A[j];
-        return idx;
+//         if(A.size() < 3 ) return A.size() ;
+//          int idx = 2;
+//         for (int j = 2; j < A.size( ) ; j++)
+//             if (A[j] != A[idx-2])
+//                 A[idx++] = A[j];
+//         return idx;
         
         
         
@@ -32,11 +32,11 @@ public:
 // The number is guaranteed to not appear more than two repetitions.
         
         
-//          int i = 0;
-//     for (int n : nums)
-//         if (i < 2 || n > nums[i-2])
-//             nums[i++] = n;
-//     return i;
+         int i = 0;
+    for (int n : A)
+        if (i < 2 || n > A[i-2])
+            A[i++] = n;
+    return i;
         
         
         
