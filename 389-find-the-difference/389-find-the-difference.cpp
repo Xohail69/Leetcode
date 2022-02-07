@@ -10,14 +10,14 @@ public:
 //         return 'a' ;
         
         
-        char c ; 
+        int c=0 ; 
         int i = 0 ; 
         for( ; i < s.size() ; i++ ) {
             c += t[i] ;
             c -= s[i] ;
         }
         c += t[i] ;
-        return (int)c ;
+        return c ;
         
     }
-};
+};                                                                                                                                                                                 
