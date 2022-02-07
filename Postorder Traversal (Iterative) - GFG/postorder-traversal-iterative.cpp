@@ -98,6 +98,29 @@ class Solution{
     public:
     vector<int> postOrder(Node* node) {
         // code here
+        //Using 2 stacks 
+        // stack<Node*>s1 , s2 ; 
+        // s1.push(node) ;
+        // while( !s1.empty() ) {
+        //     Node *top = s1.top() ;
+        //     s1.pop() ;
+        //     s2.push(top) ;
+        //     if(top->left) {
+        //         s1.push(top->left) ;
+        //     }
+        //     if(top->right) {
+        //         s1.push(top->right) ;
+        //     }
+        // }
+        
+        // vector<int>ans ;
+        // while( !s2.empty() ) {
+        //     ans.push_back(s2.top()->data) ;
+        //     s2.pop() ;
+        // }
+        // return ans ; 
+        
+        //Using 1 stack but modifying the tree
         
         // vector<int> ans ; 
         // stack<Node*> s ;
@@ -120,29 +143,33 @@ class Solution{
         // return ans ; 
         
         
-        
-        //Using 2 stacks 
-        stack<Node*>s1 , s2 ; 
-        s1.push(node) ;
-        while( !s1.empty() ) {
-            Node *top = s1.top() ;
-            s1.pop() ;
-            s2.push(top) ;
-            if(top->left) {
-                s1.push(top->left) ;
+        //Without modifying the tree 
+        Node *curr = node ;
+        stack<Node*> s ;
+        vector<int> ans ;
+        while(curr or !s.empty() ) {
+            
+            if(curr) {
+                s.push(curr) ;
+                curr = curr->left ; //go left left left
             }
-            if(top->right) {
-                s1.push(top->right) ;
+            else{ // left become null
+                Node *t = s.top()->right ; 
+                if(t == NULL ){
+                    t = s.top() ;
+                    s.pop() ;
+                    ans.push_back(t->data) ;
+                    while( !s.empty() and t == s.top()->right ){
+                        t = s.top() ;
+                        s.pop() ;
+                        ans.push_back(t->data) ;
+                    }
+                }
+                else curr = t ;
             }
         }
         
-        vector<int>ans ;
-        while( !s2.empty() ) {
-            ans.push_back(s2.top()->data) ;
-            s2.pop() ;
-        }
         return ans ; 
-        
         
         
         
