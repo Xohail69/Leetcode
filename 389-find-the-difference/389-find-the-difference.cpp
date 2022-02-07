@@ -10,14 +10,20 @@ public:
 //         return 'a' ;
         
         
-        int c=0 ; 
-        int i = 0 ; 
-        for( ; i < s.size() ; i++ ) {
-            c += t[i] ;
-            c -= s[i] ;
-        }
-        c += t[i] ;
-        return c ;
+//         int c=0 ; 
+//         int i = 0 ; 
+//         for( ; i < s.size() ; i++ ) {
+//             c += t[i] ;
+//             c -= s[i] ;
+//         }
+//         c += t[i] ;
+//         return c ;
         
+        
+        // Or by using XOR
+         char r=0;
+        for(char c:s) r ^=c;
+        for(char c:t) r ^=c;
+        return r;
     }
 };                                                                                                                                                                                 
