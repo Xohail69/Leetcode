@@ -99,25 +99,61 @@ class Solution{
     vector<int> postOrder(Node* node) {
         // code here
         
-        vector<int> ans ; 
-        stack<Node*> s ;
-        s.push(node) ; 
-        while( !s.empty() ) {
-            Node *top = s.top() ;
+        // vector<int> ans ; 
+        // stack<Node*> s ;
+        // s.push(node) ; 
+        // while( !s.empty() ) {
+        //     Node *top = s.top() ;
+        //     if(top->left) {
+        //         s.push(top->left) ;
+        //         top->left = NULL ;
+        //     }
+        //     else if(top->right ) {
+        //         s.push(top->right) ;
+        //         top->right = NULL ; 
+        //     }
+        //     else {
+        //         ans.push_back(top->data ) ;
+        //         s.pop() ;
+        //     }
+        // }
+        // return ans ; 
+        
+        
+        
+        //Using 2 stacks 
+        stack<Node*>s1 , s2 ; 
+        s1.push(node) ;
+        while( !s1.empty() ) {
+            Node *top = s1.top() ;
+            s1.pop() ;
+            s2.push(top) ;
             if(top->left) {
-                s.push(top->left) ;
-                top->left = NULL ;
+                s1.push(top->left) ;
             }
-            else if(top->right ) {
-                s.push(top->right) ;
-                top->right = NULL ; 
-            }
-            else {
-                ans.push_back(top->data ) ;
-                s.pop() ;
+            if(top->right) {
+                s1.push(top->right) ;
             }
         }
+        
+        vector<int>ans ;
+        while( !s2.empty() ) {
+            ans.push_back(s2.top()->data) ;
+            s2.pop() ;
+        }
         return ans ; 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
 };
