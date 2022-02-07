@@ -16,6 +16,9 @@ public:
         
         
         unordered_map<int,int>  m = {{0, 1 } } ;
+//         Why do we need to insert 0 in map first?
+// -> We inserted 0 first because if the sum starting group of elements in the array is k then sum-k will be 0, so we need a 0 in map to make m.count[sum-k] true.
+        
         int sum = 0 ; 
         int c = 0 ; 
         for(auto x  : nums ) {
