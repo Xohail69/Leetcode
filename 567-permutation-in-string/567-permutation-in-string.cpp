@@ -4,7 +4,7 @@ public:
              //  Time Complexity = O(n * 26) = O(n), n is the length of string s.
 // Space Complexity = O(26) = O(1)
         int n = p.size() , m = s.size() ;
-        if(m < n) return {} ;
+        if(m < n) return 0 ;
      
         vector<int> ph(26 , 0 ) , sh(26 , 0 ) ;
         //First window filled in the HT
