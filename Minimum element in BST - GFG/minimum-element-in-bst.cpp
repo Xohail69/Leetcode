@@ -103,5 +103,12 @@ int helper(Node* root) {
 int minValue(Node* root) {
     // Code here
      if( !root  ) return -1 ;
-   return helper(root) ;
+   //return helper(root) ;
+   while(root->left){
+       root = root->left ;
+   }
+   return root->data ;
+   
+   
+   
 }
