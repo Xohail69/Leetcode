@@ -14,6 +14,8 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
+        
+       
         if( !head or !head->next ) return head ;
         ListNode *p , *q , *t , *nhead ;
         nhead = head->next ; 
