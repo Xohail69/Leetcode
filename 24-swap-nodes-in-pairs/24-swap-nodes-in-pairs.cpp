@@ -38,30 +38,31 @@ public:
         
         
         ///Recursive M1
-         if( !head or !head->next ) return head ;
-        ListNode *curr = head ;
-        ListNode *nex = NULL ; 
-        ListNode *prev = NULL  ;
-        int cunt = 0 ; 
-        while( curr and cunt < 2  ){
-            nex = curr->next ; 
-            curr->next = prev ; 
-            prev = curr  ;
-            curr = nex ; 
-            cunt++  ;
-        }
-        if( nex ){
-            head->next = swapPairs(nex) ;
-        }
-        return prev ; 
+        //  if( !head or !head->next ) return head ;
+        // ListNode *curr = head ;
+        // ListNode *nex = NULL ; 
+        // ListNode *prev = NULL  ;
+        // int cunt = 0 ; 
+        // while( curr and cunt < 2  ){
+        //     nex = curr->next ; 
+        //     curr->next = prev ; 
+        //     prev = curr  ;
+        //     curr = nex ; 
+        //     cunt++  ;
+        // }
+        // if( nex ){
+        //     head->next = swapPairs(nex) ;
+        // }
+        // return prev ; 
         
         
         //M2
-//          if( !head or !head->next ) return head ;
-//         ListNode *t = head->next ;
-//         head->next = swapPairs(t->next) ;
-//         t->next = head ; 
-//         return t ; 
+        //https://leetcode.com/problems/swap-nodes-in-pairs/discuss/1774708/C%2B%2BorVisual-Image-how-links-change-or-Explained-every-step-or-Commented-code
+         if( !head or !head->next ) return head ;
+        ListNode *t = head->next ;
+        head->next = swapPairs(t->next) ;
+        t->next = head ; 
+        return t ; 
         
         
         
