@@ -78,7 +78,19 @@ public:
         
         return ans ;
     
-        
+//         //The logic Behind "Why for even numbers the number of set bits would be same as its half and for odd numbers it would be +1".
+// Things to observe:
+// 1.All odd numbers would have their LSB (the rightmost bit) set. The reason being that no bit other than 0th bit will contribute an addition of odd number; all other powers of 2 will add to even.
+// for example:
+// 3 -> 0011
+// 5 -> 0101
+// 7 -> 0111
+// Observe that LSB is set in all odd numbers
+// For similar reasons, even numbers will never have LSB set.
+
+// 2.Dividing by 2 is equivalent to right shift by 1
+
+// In case of odd number, when we do a right shift by 1, we will always lose the rightmost bit. So inorder to compensate that lost set bit, we add 1. We will not lose any set bit while doing a right shift for even number. So for even number , set bits would be same as it was for half
         
         
         
