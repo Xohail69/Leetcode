@@ -61,20 +61,54 @@ int main()
 
 //Function to find the data of nth node from the end of a linked list.
 int getNthFromLast(Node *head, int n)
-{   Node* h = head ; 
-    int c = 0 ; 
-    while( h->next  ){
-        c++ ; 
-        h = h->next ; 
-    }
-    int x = c - n + 1 ; 
-    if( x < 0 ) return -1 ; 
-    if(x == 0 ) return head->data ;
-    h = head ; 
-    while(x--){
-        h = h->next ; 
-    }
-    return h->data ; 
+ {  
+//      Node* h = head ; 
+//     int c = 0 ; 
+//     while( h->next  ){
+//         c++ ; 
+//         h = h->next ; 
+//     }
+//     int x = c - n + 1 ; 
+//     if( x < 0 ) return -1 ; 
+//     if(x == 0 ) return head->data ;
+//     h = head ; 
+//     while(x--){
+//         h = h->next ; 
+//     }
+//     return h->data ; 
+    
+    
+    
+    
+    // //M2
+    // Both pointers are initialized to head. Traverse n nodes from head with 
+    // first pointer. Then the second pointer and the first pointer start moving
+    // simultaneously. This keeps on going till the first pointer becomes null. 
+    // At this point the second pointer will be at the desired node i.e. at nth node
+    // from end since the first pointer had traversed n elements
+    // previously and thus had difference of n nodes with second pointer.
+    Node *l , *h ; 
+    l = h = head ; 
+   for(int i = 0 ; i < n - 1 and l ; i++ ) l = l->next ; 
+      if( !l ) return -1 ; 
+   while(l->next){
+       h = h->next ; 
+       l = l->next ; 
+   }
+   return h->data ;
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
        // Your code here
 }
