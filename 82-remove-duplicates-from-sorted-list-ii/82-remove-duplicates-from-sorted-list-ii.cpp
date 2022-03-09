@@ -55,7 +55,10 @@ public:
             if(head->next and head->val == head->next->val){
                  // move till the end of duplicates sublist
                 while(head->next and head->val == head->next->val )
+                {   auto t = head ; 
                     head = head->next ; 
+                    delete t ; 
+                } 
                 
                 // skip all duplicates
                 p->next = head->next ;
