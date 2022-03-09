@@ -46,33 +46,42 @@ public:
         
         
         
-        //Best in O(n) & O(1)
-        ListNode sentinel(0 , head ) ;
-        ListNode *p = &sentinel  ; //Predecessor
-        while( head ){
-            // if it's a beginning of duplicates sublist 
-            // skip all duplicates
-            if(head->next and head->val == head->next->val){
-                 // move till the end of duplicates sublist
-                while(head->next and head->val == head->next->val )
-                {   auto t = head ; 
-                    head = head->next ; 
-                    delete t ; 
-                } 
+//         //Best in O(n) & O(1)
+//         ListNode sentinel(0 , head ) ;
+//         ListNode *p = &sentinel  ; //Predecessor
+//         while( head ){
+//             // if it's a beginning of duplicates sublist 
+//             // skip all duplicates
+//             if(head->next and head->val == head->next->val){
+//                  // move till the end of duplicates sublist
+//                 while(head->next and head->val == head->next->val )
+//                 {   auto t = head ; 
+//                     head = head->next ; 
+//                     delete t ; 
+//                 } 
                 
-                // skip all duplicates
-                p->next = head->next ;
-            }
-             // otherwise, move predecessor
-            else p = p->next ; 
-              // move forward
-            head = head->next ; 
+//                 // skip all duplicates
+//                 p->next = head->next ;
+//             }
+//              // otherwise, move predecessor
+//             else p = p->next ; 
+//               // move forward
+//             head = head->next ; 
+//         }
+//         return sentinel.next ; 
+        
+        
+        //Using Recursion
+          if(head==NULL or head->next==NULL)
+            return head;
+        if(head->val!=head->next->val){
+            head->next=deleteDuplicates(head->next);
+            return head;
         }
-        return sentinel.next ; 
-        
-        
-        
-        
+        int val=head->val;
+        while(head && head->val==val)
+            head=head->next;
+        return deleteDuplicates(head);
         
         
         
