@@ -11,11 +11,13 @@ class Solution {
         int sum = 0 ; 
         for(auto x : S)
             sum += seg[x-'0'] ; 
-        vector<int> ans(N , 2 ) ;
-        sum -= 2*N ; 
+        vector<int> ans(N , 2 ) ; //Inserting 1 i.e 2 segs to every position
+        sum -= 2*N ;  // total segs remaining
         int i = 0 ; 
         while(sum >= 4 and i < N ){
-            ans[i] += 4 ; sum -=4 ; i++ ;
+            ans[i] += 4 ; // adding 4 cuz 2+4 = 6 segs which is min number 0 
+            sum -=4 ; //remaining segs after each addition 
+            i++ ;
         }
         ans[N-1] += sum ; 
         string res ; 
