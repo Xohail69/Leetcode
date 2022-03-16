@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        //Mine attempt 
 //         stack<int> s ; 
 //         int  i = 0 , j = 0 ; 
 //         int n = pushed.size() ; 
@@ -26,24 +27,30 @@ public:
 //         else return 0 ; 
         
         
+        //More concise but in O(n) Space 
+//         int n =  pushed.size() ; 
+//         stack<int> s ; 
+//          int j = 0 ; 
+//         for(auto x : pushed ){
+//             s.push(x) ; 
+//             while( !s.empty() and j < n and s.top() == popped[j] ){
+//                 s.pop() ; j++  ;
+//             }
+//         }
+//         return j == n ; 
         
-        int n =  pushed.size() ; 
-        stack<int> s ; 
-         int j = 0 ; 
-        for(auto x : pushed ){
-            s.push(x) ; 
-            while( !s.empty() and j < n and s.top() == popped[j] ){
-                s.pop() ; j++  ;
-            }
+        
+        
+        
+        
+        //In O(1) space but changing the input 
+         int i = 0, j = 0;
+        for (int x : pushed) {
+            pushed[i++] = x;
+            while (i > 0 && pushed[i - 1] == popped[j])
+                --i, ++j;
         }
-        return j == n ; 
-        
-        
-        
-        
-        
-        
-        
+        return i == 0;
         
         
         
