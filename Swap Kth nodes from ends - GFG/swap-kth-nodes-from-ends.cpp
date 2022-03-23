@@ -99,11 +99,11 @@ Node *swapkthnode(Node* head, int N , int K)
     }
     if( ep ) ep->next = s ;
     if( sp ) sp->next = e ;
-    Node *t = s->next ;
-    s->next = e->next ;
-    e->next = t
+    // Node *t = s->next ;
+    // s->next = e->next ;
+    // e->next = t
     
-    
+    swap(s->next , e->next ) ;
     
     
     if(K == 1 ) head = e ; 
