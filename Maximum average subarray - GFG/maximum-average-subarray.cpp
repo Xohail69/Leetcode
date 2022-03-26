@@ -13,18 +13,20 @@ public:
         // code here
     int sum (0 ) ;
     for(int i = 0 ; i < k ; i++ ) sum += a[i] ;
-    int idx = 0 ;
+   
     int ans = sum ; 
-        int start = 0  , end =  k ;
+        
+       
+        int end =  k-1 ;
         for(int i = k ; i < n ; i++ ){
-            sum += a[i] ;
-            sum -= a[start++] ;
+            sum += a[i] - a[i-k] ;
+            // -= a[start++] ;
             if(ans < sum ) {
                 ans = sum ;
-                idx = start ;
+                end = i ;
             }
         }
-        return idx ;
+        return end - k + 1  ;
     }
 };
 
