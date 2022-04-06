@@ -14,7 +14,6 @@ public:
         // code here
         sort(begin(ranges) , end(ranges)  , 
         [&](vector<int> &x , vector<int> &y){
-          if(x[1] == y[1]) return x[0] < y[0] ;
           return x[1] < y[1] ;   
         }
         ) ;
