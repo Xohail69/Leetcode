@@ -2,20 +2,36 @@ class Solution {
 public:
     int lastStoneWeight(vector<int>& stones) {
         if(stones.size() == 1) return stones[0] ;
-        priority_queue<int> p ;
-        for(auto x : stones) p.push(x) ;
-        while( !p.empty() ){
+        priority_queue<int> p(begin(stones) , end(stones) ) ;
+        while( p.size() > 1 ){
             auto a = p.top() ; 
             p.pop() ; 
-            int b = -1 ;
-           if(!p.empty())
-            {  b = p.top() ; 
-            p.pop()  ;}
+            auto b = p.top() ; 
+            p.pop()  ;
             
-            else return a; 
-          if(b != -1 ) { int left = max(a , b) - min(a,b) ;
-            if(left) p.push(left) ;}
+            if(a != b) p.push(a-b) ;
         }
-        return 0 ;
+        return p.empty() ? 0 : p.top() ;
+        
+        
+        
+//          priority_queue<int> pq(begin(A), end(A));
+//         while (pq.size() > 1) {
+//             int x = pq.top(); pq.pop();
+//             int y = pq.top(); pq.pop();
+//             if (x > y) pq.push(x - y);
+//         }
+//         return pq.empty() ? 0 : pq.top();
+        
+//          multiset<int> s(begin(st), end(st));
+//   while (s.size() > 1) {
+//     auto w1 = *prev(s.end());
+//     s.erase(prev(s.end()));
+//     auto w2 = *prev(s.end());
+//     s.erase(prev(s.end()));
+//     if (w1 - w2 > 0) s.insert(w1 - w2);
+//   }
+//   return s.empty() ? 0 : *s.begin();
+        
     }
 };
