@@ -2,7 +2,8 @@ class Solution {
 public:
     int lastStoneWeight(vector<int>& stones) {
         if(stones.size() == 1) return stones[0] ;
-        //Using PQ
+        //Using PQ Space Complexity : O(n)
+        //Time Complexity : O(n log(n))
 //         priority_queue<int> p(begin(stones) , end(stones) ) ;
 //         while( p.size() > 1 ){
 //             auto a = p.top() ; 
@@ -10,7 +11,7 @@ public:
 //             auto b = p.top() ; 
 //             p.pop()  ;
             
-//             if(a != b) p.push(a-b) ;
+//             if(a != b) p.push(a-b) ; // if condition is necessary here becox if a==b then 0 will also get added in our heap & we don't want that right 
 //         }
 //         return p.empty() ? 0 : p.top() ;
         
