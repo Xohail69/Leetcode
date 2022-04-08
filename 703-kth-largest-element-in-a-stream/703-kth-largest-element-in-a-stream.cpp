@@ -2,10 +2,20 @@ class KthLargest {
 public: 
     priority_queue<int,vector<int> , greater<int> > p ;
     int kaam ;
+    
+    
     KthLargest(int k, vector<int>& nums) {
         
-   for(auto x : nums ) p.push(x) ;
-        while(p.size() > k ) p.pop() ;
+        static int pr = []() { 
+    std::ios::sync_with_stdio(false); 
+    cin.tie(NULL);  
+    return 0; 
+}();
+        
+   for(auto x : nums ) {
+       p.push(x) ;
+        if(p.size() > k ) p.pop() ;
+    }
         kaam = k ;
         
     }
