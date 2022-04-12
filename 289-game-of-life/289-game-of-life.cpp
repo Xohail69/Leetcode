@@ -54,41 +54,63 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
       
         return ans ;
     }
+     int Count_Ones_New(int i , int j , vector<vector<int>>& a ){
+         int n = a.size() , m = a[0].size() ;
+        int ans(0) ;
+         
+        if(j+1 < m and  (a[i][j+1] == 1 or a[i][j+1] == 2) ) ans++ ; //r
+      
+        if(j-1 >=0 and( a[i][j-1] == 1 or a[i][j-1] == 2) ) ans++ ; //l
+        
+        if(i+1 < n and (a[i+1][j] == 1 or a[i+1][j] == 2) ) ans++ ; //d
+      
+        if(i-1 >=0 and (a[i-1][j] ==1 or a[i-1][j] == 2)) ans++ ; //u
+      
+        if(i-1 >=0 and j-1 >=0 and (a[i-1][j-1] ==1 or a[i-1][j-1]==2)  ) ans++ ;// ul
+      
+        if(i+1 < n and  j+1 < m and (a[i+1][j+1] ==1 or a[i+1][j+1] == 2)) ans++ ; //dr
+      
+        if(i+1 < n and  j-1 >=0 and (a[i+1][j-1] ==1 or a[i+1][j-1] ==2) ) ans++ ; //dl
+      
+        if(i-1 >=0 and  j+1 < m and (a[i-1][j+1] == 1 or a[i-1][j+1] == 2 )) ans++ ; //ur
+      
+        return ans ;
+    }
     void gameOfLife(vector<vector<int>>& a ) {
         //TC - O(nm) SC - O(nm)
-    vector<vector<int>> b = a ; 
-        int n = a.size() , m = a[0].size() ;
-        for(int i = 0 ; i < n ; i++ ){
-            for(int j = 0 ; j < m ; j++ ) {
-                int cnt = Count_Ones(i , j , b) ;
+//     vector<vector<int>> b = a ; 
+//         int n = a.size() , m = a[0].size() ;
+//         for(int i = 0 ; i < n ; i++ ){
+//             for(int j = 0 ; j < m ; j++ ) {
+//                 int cnt = Count_Ones(i , j , b) ;
                 
-                if(a[i][j] ) {
-                    if(cnt <2 or cnt >3 ) a[i][j] = 0 ;
-                }
-                else if(cnt == 3 ) a[i][j] = 1 ;
-            }
-        }
+//                 if(a[i][j] ) {
+//                     if(cnt <2 or cnt >3 ) a[i][j] = 0 ;
+//                 }
+//                 else if(cnt == 3 ) a[i][j] = 1 ;
+//             }
+//         }
         
         //M2 inplace in SC ->> O(1)
         
         
-//          int n = a.size() , m = a[0].size() ;
-//         for(int i = 0 ; i < n ; i++ ){
-//             for(int j = 0 ; j < m ; j++ ) {
-//                 int cnt = Count_Ones(i , j , a) ;
+         int n = a.size() , m = a[0].size() ;
+        for(int i = 0 ; i < n ; i++ ){
+            for(int j = 0 ; j < m ; j++ ) {
+                int cnt = Count_Ones_New(i , j , a) ;
                 
-//                 if(a[i][j] == 1 ) {
-//                     if(cnt <2 or cnt >3 ) a[i][j] = 0 ; //Marking newly dead as 2
-//                 }
-//                 else if(a[i][j] == 0 and cnt == 3 ) a[i][j] = 3 ; //Marking newly alive as 3
-//             }
-//         }
-//         //final modifications 2->0, 3->1
-//          for(int i = 0 ; i < n ; i++ ){
-//             for(int j = 0 ; j < m ; j++ ) {
-//                     a[i][j] %= 2 ;
-//             }
-//          }
+                if(a[i][j] == 1 ) {
+                    if(cnt <2 or cnt >3 ) a[i][j] = 2 ; //Marking newly dead as 2
+                }
+                else if(a[i][j] == 0 and cnt == 3 ) a[i][j] = 3 ; //Marking newly alive as 3
+            }
+        }
+        //final modifications 2->0, 3->1
+         for(int i = 0 ; i < n ; i++ ){
+            for(int j = 0 ; j < m ; j++ ) {
+                    a[i][j] %= 2 ;
+            }
+         }
         
         
         
