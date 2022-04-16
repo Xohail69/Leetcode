@@ -49,10 +49,7 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
     void inorder(TreeNode* root ){
         if(!root) return ;
         inorder(root->left) ;
-        // v.push_back(root->val) ;
-        m[root->val] = 1 ;
-        
-        
+        m[root->val] = 1 ;      
         inorder(root->right) ;
     }
     void in(TreeNode* root ){
@@ -63,10 +60,6 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
         
     }
     void map_filler(){
-        // auto x = m.end() ;
-        // --x ;
-        
-        
        auto x = m.rbegin() ;
          int simmi = x->f ; 
         x->s = x->f ; 
@@ -79,15 +72,7 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
     TreeNode* convertBST(TreeNode* root) {
         if(!root) return NULL ; 
         inorder(root) ;
-        // dv(v) ;
-        // int n = v.size()-1 ;
-        // int s(0) ;
-        // s += v[n] ;
-        // m[v[n]] = v[n] ;
-        // for(int i = n-1 ; i >= 0 ; i-- ){
-        //     s += v[i] ;
-        //     m[v[i]] = s; 
-        // }
+ 
         map_filler() ;
         // for(auto x : m ){
         //     db2(x.first ,x.second) ;
