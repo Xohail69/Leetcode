@@ -69,16 +69,27 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
             x->s = simmi ;
         }
    }
+    int sum = 0 ;
     TreeNode* convertBST(TreeNode* root) {
-        if(!root) return NULL ; 
-        inorder(root) ;
- 
-        map_filler() ;
-        // for(auto x : m ){
-        //     db2(x.first ,x.second) ;
-        // }
-       in(root) ;
-        return root ;
+        
+//         if(!root) return NULL ; 
+//         //Mine crazy solution in O(n) TC & O(n) SC :(
+//         inorder(root) ;
+//         map_filler() ;
+//        in(root) ;
+//         return root ;
+        
+        
+        
+        
+        //Naicee Recursion
+        if(root ){
+            convertBST(root->right) ;
+            sum += root->val ;
+            root->val = sum ; 
+            convertBST(root->left ) ;
+        }
+        return root ; 
         
         
         
