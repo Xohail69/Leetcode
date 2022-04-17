@@ -50,19 +50,69 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
         v.push_back(root) ;
         inorder(root->right) ;
     }
+    TreeNode *curr ; // this will be our tree till now 
+    void inorder_link_change(TreeNode* root ){
+        if(!root ) return ;
+        inorder(root->left ) ;
+        root->left = NULL ;  //cut the left node of present node(root)
+        curr->right = root ;  //connect right of current node of our tree made till now  to the present node(root) ;
+        curr = root ; // move current node to present node(root) ;
+        inorder(root->right ) ;
+    }
     TreeNode* increasingBST(TreeNode* root) {
-        inorder(root) ;
-      
-       // for(auto x : v) db1(x->val) ;
-         int i = 0 ;
-        for(  ; i < v.size()-1 ; i++ ){
-            // db2(v[i]->val ,  v[i]->right ) ;
-            // db2(v[i+1]->val , v[i+1]->right) ;
-             v[i]->right = v[i+1] ;
-            v[i]->left = NULL ;
-        }
-        v[i]->left = NULL ;
-        return v[0] ;
+        //M1 SC - {O(H) + O(N)}
+         //    TC - O(N)
+        //My way to store nodes in a vector then changing its links 
+        //
+//         inorder(root) ;
+//          int i = 0 ;
+//         for(  ; i < v.size()-1 ; i++ ){
+//              v[i]->right = v[i+1] ;
+//             v[i]->left = NULL ;
+//         }
+//         v[i]->left = NULL ;
+//         return v[0] ;
     
+        
+        
+        
+        
+        
+        
+        //M2 TC - O(N) & SC - O(H) 
+        //Changing links while doing inorder 
+//         TreeNode ans(-1) ;
+//         curr = &ans ; 
+//         inorder_link_change(root) ;
+//         return ans.right ;
+        
+        
+        
+        //M3 inorder using stack 
+        TreeNode ans(-1) ;
+        TreeNode *pre  = &ans ; 
+        
+        stack<TreeNode*> s ;
+        while(!s.empty() or root ){
+            while(root){ //continuosly move left 
+                s.push(root) ; 
+                root = root->left ;
+            }
+            root = s.top() ;
+            s.pop() ; 
+            pre->right = root ;   
+            pre = pre->right ;
+            root->left = NULL ;
+         
+            
+            root = root->right ;
+        }
+        
+        
+      return ans.right ; 
+        
+        
+        
+        
     }
 };
