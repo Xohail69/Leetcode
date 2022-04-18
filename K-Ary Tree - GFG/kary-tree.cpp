@@ -11,33 +11,30 @@ class Solution {
   public:
   #define ll long long 
   const int mod = 1e9 + 7 ;
+  ll power_optimised(ll a , ll n) {   // to calculate a^n
+      ll ans = 1LL ;
+      while(n>0){
+          ll last_bit = n&1 ; 
+          if(last_bit) ans = (ans*a)%mod ;
+          a = (a*a)%mod ; //square up
+          n = n>>1 ; // discard last bit of n 
+      }
+      return ans ;
+  }
     long long karyTree(int m, int h) {
-        // code here
-        // ll mh = pow(m , h ) ;
+    //No. of leaf nodes = m^h  as at each level m*(no. of nodes existing at a level)
+    //keep merging up which results in above relation
         
-        // ll i = ((mh-1)/(m-1))%mod ;
-        // ll e = ((m-1)*i)%mod + 1 ;
-        // return e%mod ;
-        
-        // ll ans = 1LL ;
-        // while(h > 0 ){
-        //     ans *= m ;
-        //     ans %= mod ;
-        //     h-- ;
+        //   long sol = 1L;
+        // while(h>0){
+        //     sol = sol*m;
+        //     sol = sol%1000000007L;
+        //     h--;
         // }
-        // return ans ;
         
-        
-          long sol = 1L;
-        while(h>0){
-            sol = sol*m;
-            sol = sol%1000000007L;
-            h--;
-        }
-        
-        return sol;
-        
-        
+        // return sol;
+        //
+        return power_optimised(m , h ) ;
         
         
         
