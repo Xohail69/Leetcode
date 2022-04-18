@@ -21,25 +21,26 @@ public:
     }
     
     int kthSmallest(TreeNode* root, int k) {
-        ans = 0 ; 
-        inorder(root , k ) ;
-        return ans;
+        //M1 using inorder
+        // ans = 0 ; 
+        // inorder(root , k ) ;
+        // return ans;
         
-//         //Using Iterative inorder
-//         stack<TreeNode *> stk;
-//         while(1)
-//         {
-//             while(root!=NULL)
-//             {
-//                 stk.push(root);
-//                 root=root->left;
-//             }
-//             root=stk.top();
-//             stk.pop();
-//             k--;
-//             if(k==0) return root->val;
-//             root=root->right;
-//         }
+        //M2 Using Iterative inorder
+        stack<TreeNode *> stk;
+        while(1)
+        {
+            while(root!=NULL)
+            {
+                stk.push(root);
+                root=root->left;
+            }
+            root=stk.top();
+            stk.pop();
+            k--;
+            if(k==0) return root->val;
+            root=root->right;
+        }
         
         
     }
