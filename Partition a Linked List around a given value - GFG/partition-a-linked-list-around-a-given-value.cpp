@@ -73,70 +73,99 @@ int main(void) {
         data = x;
         next = NULL;
     }
-
-};*/
+*/
 
 struct Node* partition(struct Node* head, int x) {
     // code here
-    Node* hs , *he , *hl  , *ts , *te , *tl ;
-    hs = he = hl = NULL ;
-    ts = te = tl = NULL ; 
+    // Node* hs , *he , *hl  , *ts , *te , *tl ;
+    // hs = he = hl = NULL ;
+    // ts = te = tl = NULL ; 
  
-    while(head){
-        if(head->data < x ){
-            if(hs){
-                Node *t = new Node(head->data) ;
-                ts->next = t ;
-                ts = t ; 
-            }
-            else {
-                hs = new Node(head->data) ;
-                ts = hs ;
-            }
-        }
-        else if(head->data == x ){
-            if(he){
-                Node *t = new Node(head->data) ;
-                te->next = t ;
-                te = t ; 
-            }
-            else {
-                he = new Node(head->data) ;
-                te = he ;
-            }
-        }
-        else{
-            if(hl){
-                Node *t = new Node(head->data) ;
-                tl->next = t ;
-                tl = t ; 
-            }
-            else {
-                hl = new Node(head->data) ;
-                tl = hl ;
-            }
-        }
-        head = head->next ; 
-    }
-    if(!hs and !he and hl ) return hl ;
-    if(hs and !he and !hl ) return hs ;
-    if(!hs and he and !hl ) return he ;
+    // while(head){
+    //     if(head->data < x ){
+    //         if(hs){
+    //             Node *t = new Node(head->data) ;
+    //             ts->next = t ;
+    //             ts = t ; 
+    //         }
+    //         else {
+    //             hs = new Node(head->data) ;
+    //             ts = hs ;
+    //         }
+    //     }
+    //     else if(head->data == x ){
+    //         if(he){
+    //             Node *t = new Node(head->data) ;
+    //             te->next = t ;
+    //             te = t ; 
+    //         }
+    //         else {
+    //             he = new Node(head->data) ;
+    //             te = he ;
+    //         }
+    //     }
+    //     else{
+    //         if(hl){
+    //             Node *t = new Node(head->data) ;
+    //             tl->next = t ;
+    //             tl = t ; 
+    //         }
+    //         else {
+    //             hl = new Node(head->data) ;
+    //             tl = hl ;
+    //         }
+    //     }
+    //     head = head->next ; 
+    // }
+    // if(!hs and !he and hl ) return hl ;
+    // if(hs and !he and !hl ) return hs ;
+    // if(!hs and he and !hl ) return he ;
 
-    if(!hs  ){
-        te->next = hl ;
-        return he ;
+    // if(!hs  ){
+    //     te->next = hl ;
+    //     return he ;
+    // }
+    // if(!he){
+    //     ts->next = hl ;
+    //     return hs ;
+    // }
+    // if(!hl){
+    //     ts->next = he ;
+    //     return hs ; 
+    // }
+    // ts->next = he ;
+    // te->next = hl ;
+    // return hs ; 
+    
+
+    
+    //Without extra space
+      Node* cur=head;
+    Node* lessHead=new Node(-1), *less=lessHead;
+    Node* equalHead=new Node(-1), *equal=equalHead;
+    Node* highHead=new Node(-1), *high=highHead;
+    while(cur){
+        if(cur->data<x) less->next=cur, less=less->next;
+        else if(cur->data>x) high->next=cur, high=high->next;
+        else equal->next=cur, equal=equal->next;
+        cur=cur->next;
     }
-    if(!he){
-        ts->next = hl ;
-        return hs ;
-    }
-    if(!hl){
-        ts->next = he ;
-        return hs ; 
-    }
-    ts->next = he ;
-    te->next = hl ;
-    return hs ; 
+    high->next=NULL;
+    equal->next=highHead->next;
+    less->next=equalHead->next;
+    return lessHead->next;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }
