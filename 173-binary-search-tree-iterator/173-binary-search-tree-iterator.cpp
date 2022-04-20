@@ -12,6 +12,7 @@
 class BSTIterator {
 public:
     stack<TreeNode*> s ;
+    //Mine rinorder 
     void rinorder(TreeNode* root){
         if(!root ) return ; 
         rinorder(root->right) ;
@@ -19,13 +20,32 @@ public:
         rinorder(root->left)  ;
     }
     BSTIterator(TreeNode* root) {
-        rinorder(root) ;
+        //rinorder(root) ; Mine
+        
+        partialInorder(root) ;
     }
-    
+    void partialInorder(TreeNode* root ){
+          while(root != NULL){
+            s.push(root);
+            root = root->left;
+        }
+    }
     int next() {
-        auto x = s.top()->val ; 
-        s.pop() ; 
-        return x ; 
+        
+        //Mine
+//         auto x = s.top()->val ; 
+//         s.pop() ; 
+//         return x ; 
+        
+        
+        
+        
+        
+         TreeNode* top = s.top();
+        s.pop();
+        partialInorder(top->right);
+        return top->val;
+        
     }
     
     bool hasNext() {
