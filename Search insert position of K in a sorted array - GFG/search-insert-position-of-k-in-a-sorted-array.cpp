@@ -12,14 +12,37 @@ class Solution{
         // code here
         
        
-        for(int i = 0 ; i < n ; i++ ){
-            if(a[i] == k ) {
-                return i ;
-            }
-            else if(a[i] > k ) {
-                return i ;
-            }
+        // for(int i = 0 ; i < n ; i++ ){
+        //     if(a[i] == k ) {
+        //         return i ;
+        //     }
+        //     else if(a[i] > k ) {
+        //         return i ;
+        //     }
+        // }
+        
+        int l = 0  , h = n - 1 ;
+        int mid ; 
+        while(l <=h ){
+            mid = l + (h-l)/2 ; 
+            if(a[mid] == k ) return mid ; 
+            else if(a[mid] > k ) h = mid - 1 ;
+            else l = mid + 1 ;
         }
+        return l ;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 };
 
