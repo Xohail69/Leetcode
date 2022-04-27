@@ -22,20 +22,35 @@ public:
         // }
         // return cunt ;
         
-        lli l = 1 , h = min(1e6,sqrt(n)); ;
-        lli mid , ans = 0  ;
-        while(l <= h ){
-            mid = l + (h-l)/2 ;
-              lli sum = (mid*(mid+1)*(2*mid+1)) / 6;
-            if(sum <= n ){
-                ans = mid ;
-                l = mid+1 ;
-            }
-            else h = mid-1 ; 
+        // lli l = 1 , h = min(1e6,sqrt(n)); ;
+        // lli mid , ans = 0  ;
+        // while(l <= h ){
+        //     mid = l + (h-l)/2 ;
+        //       lli sum = (mid*(mid+1)*(2*mid+1)) / 6;
+        //     if(sum <= n ){
+        //         ans = mid ;
+        //         l = mid+1 ;
+        //     }
+        //     else h = mid-1 ; 
+        // }
+        // return ans ; 
+        
+        //M2 
+        //Note: square series increases in a order
+//  1, (1+3)=4, (4+5)=9, (9+7)=16, (16+9)=25, (25+11)=36…….
+// here we can observe a series has being 
+// added with previous result, i.e series of odd numbers(1,3,7,9,11….)
+
+
+        lli cunt = 0 ;
+        lli x = 1  , strength = 1 ;
+        while(n >= strength ){
+            cunt++ ;
+            n -= strength ; 
+            x += 2 ; // generating odd numbers 1 , 3 , 5 , 7 ......
+            strength += x ;//generating squares 1 , 1+3 , 4+5 , 9+7 ......... 
         }
-        return ans ; 
-        
-        
+        return cunt ; 
         
     }
 };
