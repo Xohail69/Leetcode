@@ -32,25 +32,36 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
 #define dv(v)        {cout<<#v<<" = [" ; for (auto x : v) cout << x << " , "; cout <<" ]"<< nl ; }
 #define d2dv(v)       { cout<<#v<<":"<<nl ;  for (auto &x : v) { for (auto y : x) {	cout << y << " "; } cout << nl; }   }
 
-    string back(string s){
+    string back(string &s){
         string ans ;
-        int h = 0 ; 
-       stack<char> stk ;
-        for(auto x : s ) stk.push(x) ; 
-        while(!stk.empty() ){
-            auto y = stk.top() ;
-            stk.pop() ;
-            if(y == '#') h++ ;
-            else if( h == 0 ) ans += y ;
+        //Using stack
+       //  int h = 0 ; 
+       // stack<char> stk ;
+       //  for(auto x : s ) stk.push(x) ; 
+       //  while(!stk.empty() ){
+       //      auto y = stk.top() ;
+       //      stk.pop() ;
+       //      if(y == '#') h++ ;
+       //      else if( h == 0 ) ans += y ;
+       //      else h-- ;
+       //  }
+        
+        
+        //Without using stack 
+        int n = s.size() - 1 ;
+        int h = 0 ;
+        for(int j = n ; j >=0 ; j-- ){
+            if(s[j] == '#' ) h++ ;
+            else if(h == 0 ) ans += s[j] ;
             else h-- ;
-        }
+        }        
         return ans ;
     }
     
     bool backspaceCompare(string s, string t) {
        string a = back(s) ;
         string b = back(t) ; 
-       db2(a , b ) ;
+      // db2(a , b ) ;
         return a==b ;
     }
 };
