@@ -36,7 +36,7 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
         string ans ;
         //Using stack
        //  int h = 0 ; 
-       // stack<char> stk ;
+        stack<char> stk ;
        //  for(auto x : s ) stk.push(x) ; 
        //  while(!stk.empty() ){
        //      auto y = stk.top() ;
@@ -45,17 +45,28 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
        //      else if( h == 0 ) ans += y ;
        //      else h-- ;
        //  }
-        
+        //Using stack but in a single traversal itself
+        for(auto y : s ){
+            if(y != '#') stk.push(y) ;
+            else if(!stk.empty())
+                stk.pop() ;
+        }
+        while(!stk.empty()){
+            ans += stk.top() ;
+            stk.pop() ;
+        }
+        return ans ; 
         
         //Without using stack 
-        int n = s.size() - 1 ;
-        int h = 0 ;
-        for(int j = n ; j >=0 ; j-- ){
-            if(s[j] == '#' ) h++ ;
-            else if(h == 0 ) ans += s[j] ;
-            else h-- ;
-        }        
-        return ans ;
+        //Best
+        // int n = s.size() - 1 ;
+        // int h = 0 ;
+        // for(int j = n ; j >=0 ; j-- ){
+        //     if(s[j] == '#' ) h++ ;
+        //     else if(h == 0 ) ans += s[j] ;
+        //     else h-- ;
+        // }        
+        // return ans ;
     }
     
     bool backspaceCompare(string s, string t) {
