@@ -20,34 +20,34 @@ public:
         
         
         //Single traversal
-        unordered_map<int, int> freq;
-        int ans = 0;
-        for(auto cur: nums){
-            int complement = sum - cur;
-            if(freq[complement] > 0){ans++; freq[complement]--;}
-            else freq[cur]++;
-        }
-        return ans; 
+//         unordered_map<int, int> freq;
+//         int ans = 0;
+//         for(auto cur: nums){
+//             int complement = sum - cur;
+//             if(freq[complement] > 0){ans++; freq[complement]--;}
+//             else freq[cur]++;
+//         }
+//         return ans; 
         
         
         
         // M3 Sorting + Two pointer
-//           sort(nums.begin(), nums.end());
-//         int count = 0;
-//         int left = 0;
-//         int right = nums.size() - 1;
-//         while (left < right && nums[left] < sum) {  // pruning:  nums[left] < k
-//             if (nums[left] + nums[right] < sum) {
-//                 left++;
-//             } else if (nums[left] + nums[right] > sum ) {
-//                 right--;
-//             } else {
-//                 left++;
-//                 right--;
-//                 count++;
-//             }
-//         }
-//         return count;
+          sort(nums.begin(), nums.end());
+        int count = 0;
+        int left = 0;
+        int right = nums.size() - 1;
+        while (left < right && nums[left] < sum) {  // pruning:  nums[left] < k
+            if (nums[left] + nums[right] < sum) {
+                left++;
+            } else if (nums[left] + nums[right] > sum ) {
+                right--;
+            } else {
+                left++;
+                right--;
+                count++;
+            }
+        }
+        return count;
         
         
         
