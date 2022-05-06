@@ -1,0 +1,145 @@
+class Solution {
+public:
+    #define ll                  long long
+#define loop(i,s,n) for(int i=s;i<n;++i)
+#define rloop(i,n,s) for(int i=n;i>=s;--i)
+#define sz(x) (int)(x).size()
+#define mp make_pair
+#define pb push_back
+#define f first
+#define s second
+#define lb lower_bound
+#define ub upper_bound
+#define all(x) x.begin(), x.end()
+#define ins insert
+#define itoc(c) ((char)(((int)'0') + c))
+#define max(x, y) ((x > y) ? x : y)
+#define min(x, y) ((x < y) ? x : y)
+#define mid(s, e) (s + (e - s) / 2)
+const int MOD = 1000000007;
+const char nl = '\n';
+const int MX = 100001;
+typedef pair<int, int> pi;
+template <class T> T mceil(T a, T b) {if (a % b == 0) return a / b; else return a / b + 1;}
+template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return a / b - 1;}
+#define db1(x) 						  cout<<#x<<" = "<<x<<'\n'
+#define db2(x,y) 					  cout<<#x<<" = "<<x<<", "<<#y<<" = "<<y<<'\n'
+#define db3(x,y,z) 				  cout<<#x<<"= "<<x<<", "<<#y<<"= "<<y<<", "<<#z<<"= "<<z<<'\n'
+//using namespace std;
+#define rep(i, begin, end)  for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
+#define p2darray(a, n, m)   rep(i, 0, n){rep(j, 0, m){cout<<a[i][j]<<" ";}cout<<endl;}
+#define dv(v)        {cout<<#v<<" = [" ; for (auto x : v) cout << x << " , "; cout <<" ]"<< nl ; }
+#define d2dv(v)       { cout<<#v<<":"<<nl ;  for (auto &x : v) { for (auto y : x) {	cout << y << " "; } cout << nl; }   }
+
+    string helper(string &s , int k){
+            bool f = 1 ;
+        for(int i = 0 ; i < s.size() ; i++ ){
+            int j = i , c = 1 ;
+            while(s[j] == s[j+1]) {
+                c++ ; j++ ;
+            }
+            if(c == k ){
+                f = 0 ;
+                string a = s.substr(0 , j - k +1) ;
+                string b = s.substr(j+1) ;
+                s = a + b ;
+                // db1(j) ;
+                // db2(a , b ) ; 
+            }
+            
+            
+        }
+        if(!f) return helper(s , k) ;
+        return s ;
+        
+    }
+    
+    string removeDuplicates(string s, int k) {
+        // return helper(s , k );
+    
+        
+        
+//         stack<char>stk ;
+//         int c = 1 ;
+//         pair<int , char > p ;
+//         p.first = 1 ;
+//         for(int i = 0  ; i < s.size() ; i++ ){
+//             if(!stk.empty() ){
+//                 auto top = stk.top() ;
+//                 if(s[i] == top or p.second == top ){
+//                     c++ ; 
+                   
+//                 }
+//                  else {
+//                      p.first = c ; c = 1 ; 
+//                      p.second = s[i] ;
+//                  }
+//                 if(c == k or p.first == k ){ 
+//                     stk.push(s[i++]) ;
+//             while(c--) {stk.pop() ; }
+//                     c = 1 ;
+//                 }
+//             }
+//             stk.push(s[i]) ;
+//         }
+        
+//         string ans ; 
+//         while(!stk.empty() ) {
+//             ans += stk.top() ;
+//             stk.pop() ;
+//         }
+//         reverse(ans.begin() , ans.end() ) ;
+//         return ans ;
+        
+         
+        stack<int>count;
+        
+        for(int i =0;i<s.size();i++)
+        {
+            if(i==0 || s[i]!=s[i-1])
+            {
+                count.push(1);
+            }
+            else if(++count.top()==k)
+            {
+                count.pop();
+                s.erase(i-k+1,k);
+                i=i-k;
+            
+            }
+            
+            
+        }
+        
+        return s;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    }
+};
