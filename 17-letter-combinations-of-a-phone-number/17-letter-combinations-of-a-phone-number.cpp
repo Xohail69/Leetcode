@@ -20,20 +20,20 @@ public:
     
     vector<string> letterCombinations(string digits) {
          if(digits == "") return {} ;
-        string t = "" ;
-        helper(digits , 0 , t ) ;
-        return ans ; 
+        // string t = "" ;
+        // helper(digits , 0 , t ) ;
+        // return ans ; 
         
-//         vector<string> ans{""} ;
-//         for(auto digit : digits ){
-//             vector<string> extendComb ;
-//             for(auto& curr : ans )
-//                 for(auto newchar : m[digit - '2' ]) 
-//                     extendComb.push_back(curr + newchar ) ;
+        vector<string> ans{""} ;
+        for(auto digit : digits ){
+            vector<string> extendComb ;
+            for(auto& curr : ans )
+                for(auto newchar : m[digit - '2' ]) 
+                    extendComb.push_back(curr + newchar ) ;
             
-//             ans = move(extendComb) ; // same as ans = extendComb , just avoids copying each value. You Can also use swap(ans,extendComb)
-//         }
-//         	return ans;
+            ans = move(extendComb) ; // same as ans = extendComb , just avoids copying each value. You Can also use swap(ans,extendComb)
+        }
+        	return ans;
         
         
         
