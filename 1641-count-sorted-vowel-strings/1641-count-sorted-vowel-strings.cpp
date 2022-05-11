@@ -29,21 +29,21 @@ public:
 // in n=3, e will be previous e(4) + count of next element, i(6) → 10
               
               
-        int a = 1 , e = 1 , i = 1 , o = 1 , u = 1 ; 
-        return increment(a , e , i , o ,u , n  )  ; 
+//         int a = 1 , e = 1 , i = 1 , o = 1 , u = 1 ; 
+//         return increment(a , e , i , o ,u , n  )  ; 
         
         
         //M2
-//           int a=1, e=1, i=1, o=1, u=1;
+          int a=1, e=1, i=1, o=1, u=1;
         
-//         while(--n){
-//             o += u;
-//             i += o;
-//             e += i;
-//             a += e;
-//         }
+        while(--n){
+            o += u;
+            i += o;
+            e += i;
+            a += e;
+        }
         
-//         return a+e+i+o+u;
+        return a+e+i+o+u;
         
         
         
