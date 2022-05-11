@@ -34,16 +34,16 @@ public:
         
         
         //M2
-          int a=1, e=1, i=1, o=1, u=1;
+//           int a=1, e=1, i=1, o=1, u=1;
         
-        while(--n){
-            o += u;
-            i += o;
-            e += i;
-            a += e;
-        }
+//         while(--n){
+//             o += u;
+//             i += o;
+//             e += i;
+//             a += e;
+//         }
         
-        return a+e+i+o+u;
+//         return a+e+i+o+u;
         
         
         
@@ -63,7 +63,7 @@ public:
 //         return ans;
         
         
-        // return (n + 1) * (n + 2) * (n + 3) * (n + 4) / 24;
+        return (n + 1) * (n + 2) * (n + 3) * (n + 4) / 24;
         
         
     }
