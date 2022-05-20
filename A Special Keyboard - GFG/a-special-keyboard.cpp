@@ -13,11 +13,21 @@ class Solution {
     int findTime(string S1, string S2) {
         // code here
         int ans(0) , prev(0) ;
+        // for(auto x : S2){
+        //     int y = S1.find(x)  ;
+        //     ans += abs(prev - y)  ;
+        //     prev = y ;
+        // }
+        
+        vector<int> h(26 , 0 ) ;
+        for(int i = 0 ; i < S1.size() ; i++  )
+            h[S1[i]-'a'] = i ; 
         for(auto x : S2){
-            int y = S1.find(x)  ;
-            ans += abs(prev - y)  ;
-            prev = y ;
+            int ix = h[x - 'a'] ;
+            ans += abs(prev - ix) ;
+            prev = ix ;
         }
+        
         return ans ; 
     }
 };
