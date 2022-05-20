@@ -43,7 +43,12 @@ public:
 // Thus, we need to perform a total number of m+n-2 moves.
 // At each cell along the path, we can choose either the right-move or down-move and we need to find the number of unique combinations of these choices (which eventually leads to unique paths).
 // This is nothing but calculating the number of different ways to choose m-1 down-moves and n-1 right-moves from a total of m+n-2 moves. Mathematically, this can be represented as -
+        
+//         We had 3x7 grid, robot needs to take (3-1) = 2 steps down overall and 7-1 = 6 steps right overall to reach the bottom right of the grid. This is a total of 8 steps. And the ordering doesn't matter like: D D R R R R R R or D R D R R R R R or R R R R R R D D will all do the job, and all of this is noting but the permutation of total steps. So this is nothing but number of ways of choose D in the 8 blanks or number of ways of choosing R in the 8 blanks which is nothing but 8C6 or 8C2 = 28 (both will do the job) 
+
+// Approach: So, we only need to choose number of ways of picking right from the total steps or number of ways of choosing down from the total steps. Which is nothing but (total) C (right) or (total) C (down).
         // (m+n-2)C(n-1) = (m+n-2)C(m-1)
+        
         
         int N = n + m - 2 ;
         int r = m - 1 ;
