@@ -56,24 +56,33 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
                 
             }
         
-   for(int i = 1 ; i < r ; i++ ){
-    for(int j = 1 ; j < c ; j++ ){
-        if(m[i][0] == 0 or m[0][j] == 0 )
-            m[i][j] = 0 ; 
-    }
-   }
+//    for(int i = 1 ; i < r ; i++ ){
+//     for(int j = 1 ; j < c ; j++ ){
+//         if(m[i][0] == 0 or m[0][j] == 0 )
+//             m[i][j] = 0 ; 
+//     }
+//    }
         
-    //First row
-        if(m[0][0] == 0 )
-            for(int j = 0 ; j < c ; j++ )
-                m[0][j] = 0 ; 
+//     //First row
+//         if(m[0][0] == 0 )
+//             for(int j = 0 ; j < c ; j++ )
+//                 m[0][j] = 0 ; 
         
-        //first col
-        if(isCol){
-            for(int j = 0 ; j<r  ; j++ )
-                m[j][0] = 0 ; 
-        }
-        
+//         //first col
+//         if(isCol){
+//             for(int j = 0 ; j<r  ; j++ )
+//                 m[j][0] = 0 ; 
+//         }
+             
+
+        //Above 3 loops can be combined into one loop as :-
+	for (int i = r - 1  ; i >=0 ; i-- ) {
+		for (int j = c - 1  ; j >=1 ; j--) {
+			if(m[i][0]== 0 || m[0][j]==0) m[i][j] = 0 ;
+		}
+        if(isCol  ) m[i][0] = 0 ;
+	    }
+      
   
         
     }
