@@ -2,16 +2,16 @@ class Solution {
 public:
     int numberOfSteps(int num) {
         
-        int ans (0) ; 
-        while(num){
-            if( num & 1 ) {
-                num -= 1 ;
-            }
-            else num /= 2 ;
-            ans++ ;
-        }
+//         int ans (0) ; 
+//         while(num){
+//             if( num & 1 ) {
+//                 num -= 1 ;
+//             }
+//             else num /= 2 ;
+//             ans++ ;
+//         }
         
-        return ans ;
+//         return ans ;
         
         
         
@@ -41,7 +41,7 @@ public:
 // bitset<32>(num).count() is equivalent to __builtin_popcount(num)
     
     
-     return num == 0 ? 0 : log2(num) + bitset<32>(num).count();
+    // return num == 0 ? 0 : log2(num) + bitset<32>(num).count();
     
     return num == 0 ? 0 : log2(num) + __builtin_popcount(num) ;
         
