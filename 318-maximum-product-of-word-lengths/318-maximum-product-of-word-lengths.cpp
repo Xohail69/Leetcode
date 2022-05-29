@@ -13,31 +13,31 @@ public:
          int ans = 0 ; 
         
         
-        vector<bitset<26>> chars(n ) ;
-        for(int i = 0 ; i < n ; i ++ ){
-            for(auto x : words[i] )
-                chars[i][x-'a'] = 1 ;
-            for(int j = 0 ; j < i ; j++ ){
-                if(!checkCommon(chars[i] , chars[j] ) )
-                    ans = max(ans , (int)(words[i].size() * words[j].size()) ) ;
-            }
-        }
-        return ans ; 
+//         vector<bitset<26>> chars(n ) ;
+//         for(int i = 0 ; i < n ; i ++ ){
+//             for(auto x : words[i] )
+//                 chars[i][x-'a'] = 1 ;
+//             for(int j = 0 ; j < i ; j++ ){
+//                 if(!checkCommon(chars[i] , chars[j] ) )
+//                     ans = max(ans , (int)(words[i].size() * words[j].size()) ) ;
+//             }
+//         }
+//         return ans ; 
         
         
         
         //M2 using bit mani instead of bitset 
-//         vector<int> mask(n) ;
-//         for(int i = 0 ; i < n ; i++ ){
-//             for(auto x : words[i]) 
-//                 mask[i] |= 1 << ( x - 'a') ;
-//             for(int j = 0 ; j < i ; j++ ){
-//                 if( (mask[i] & mask[j]) == 0 )
-//                    ans = max(ans , (int)(words[i].size() * words[j].size()) ) ;
-//             }
-//         }
+        vector<int> mask(n) ;
+        for(int i = 0 ; i < n ; i++ ){
+            for(auto x : words[i]) 
+                mask[i] |= 1 << ( x - 'a') ;
+            for(int j = 0 ; j < i ; j++ ){
+                if( (mask[i] & mask[j]) == 0 )
+                   ans = max(ans , (int)(words[i].size() * words[j].size()) ) ;
+            }
+        }
         
-//         return ans ; 
+        return ans ; 
         
         
         
