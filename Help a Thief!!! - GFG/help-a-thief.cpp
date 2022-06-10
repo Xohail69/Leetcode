@@ -18,20 +18,23 @@ class Solution {
         }
         sort(maal.begin() , maal.end() ) ;
         int ans = 0 ;
-        
-        for(int i = N-1 ; i>= 0  ; i-- ) {
-            auto x = maal[i] ;
-           if(T >= x.second ){ 
+        int i = N-1 ;
+        pair<int,int> x ;
+        while(i>=0  and T >=0 ) {
+             x = maal[i--] ;
+            if(T >= x.second ) {
                T -= x.second ;
             ans += x.first*x.second ;
-               
-           }
-            else {
-            ans += x.first*T ;
-            break ;
             }
+        else{
+        ans += x.first*T ;
+        break ;
             
         }
+            
+        }
+
+        
         return ans ;
     }
 };
