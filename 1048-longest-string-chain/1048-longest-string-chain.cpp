@@ -41,8 +41,7 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
         for(auto &x : words ){
             dp[x] = 1 ; 
             for(int i = 0 ; i < x.size() ; i++ ){
-                // db2(i , x ) ;
-                // db2(x.substr(0, i ) , x.substr(i+1) ) ;
+                
             string prev = x.substr(0 ,  i ) + x.substr(i+1) ;
             if(dp.count(prev) ){
                 dp[x] = max(dp[x] , dp[prev] + 1 ) ;
