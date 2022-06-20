@@ -1,6 +1,13 @@
 class Solution {
 public:
-    #define ll                  long long
+    
+
+    
+    
+    
+    
+    
+#define ll                  long long
 #define loop(i,s,n) for(int i=s;i<n;++i)
 #define rloop(i,n,s) for(int i=n;i>=s;--i)
 #define sz(x) (int)(x).size()
