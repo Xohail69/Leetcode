@@ -1,5 +1,5 @@
 # Finding Profession
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Consider a special family of <strong>Engineers</strong> and <strong>Doctors</strong> with following rules :</span></p>
 
