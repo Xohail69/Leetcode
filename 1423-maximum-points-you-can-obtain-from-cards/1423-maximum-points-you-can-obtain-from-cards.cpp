@@ -43,25 +43,32 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
     
     
     int maxScore(vector<int>& c , int k) {
-        int total_sum = accumulate(c.begin() , c.end() , 0 ) ; 
+        
+        
+         int total_sum = accumulate(c.begin() , c.end() , 0 ) ; 
         if(k == c.size() ) return total_sum ;
-        int n = c.size() - k ; // Remove min subarray of this size 
-        int l = 0 , h ; 
+        int n = c.size() - k ; // Remove min subarray of this size to get max score
+        int score = 0 ; 
         int ans = INT_MAX ; 
         vector<int>pre(c.size() , 0 ) ; 
-        partial_sum(c.begin() , c.end() , pre.begin() ) ; 
+        partial_sum(c.begin() , c.end() , pre.begin() ) ; //It'll fill the vec with prefix sum
  
-        while(h < c.size() ) {
-            h = l + n - 1 ; 
-           
-            int lam = (l == 0 ? 0 : pre[l-1]) ;
-             int t = pre[h] - lam  ;
-            ans = min(ans , t ) ; 
-            l++ , h++ ; 
+        //Sliding window
+        for(int i = 0 ; i <= k ; i++ ){
+            int j = i + n - 1 ; //Window length
+            if(i == 0 ) score = pre[j] ; 
+            else score = pre[j] - pre[i-1] ;
+            ans = min(ans , score ) ;
         }
         
+        
+        
         return total_sum-ans ;
-       
+        
+        
+        
+        
+    
         
         
         
