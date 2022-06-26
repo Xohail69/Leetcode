@@ -53,9 +53,9 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
  
         while(h < c.size() ) {
             h = l + n - 1 ; 
-            int t = 1000 ;
+           
             int lam = (l == 0 ? 0 : pre[l-1]) ;
-              t = pre[h] - lam  ;
+             int t = pre[h] - lam  ;
             ans = min(ans , t ) ; 
             l++ , h++ ; 
         }
