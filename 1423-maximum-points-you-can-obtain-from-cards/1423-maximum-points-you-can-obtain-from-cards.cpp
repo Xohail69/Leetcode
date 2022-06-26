@@ -56,7 +56,6 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
             int t = 1000 ;
             int lam = (l == 0 ? 0 : pre[l-1]) ;
               t = pre[h] - lam  ;
-            // db3(l  , h , t ) ; 
             ans = min(ans , t ) ; 
             l++ , h++ ; 
         }
