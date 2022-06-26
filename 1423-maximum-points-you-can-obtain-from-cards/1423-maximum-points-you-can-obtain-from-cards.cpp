@@ -45,25 +45,41 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
     int maxScore(vector<int>& c , int k) {
         
         
-         int total_sum = accumulate(c.begin() , c.end() , 0 ) ; 
-        if(k == c.size() ) return total_sum ;
-        int n = c.size() - k ; // Remove min subarray of this size to get max score
-        int score = 0 ; 
-        int ans = INT_MAX ; 
-        vector<int>pre(c.size() , 0 ) ; 
-        partial_sum(c.begin() , c.end() , pre.begin() ) ; //It'll fill the vec with prefix sum
+//          int total_sum = accumulate(c.begin() , c.end() , 0 ) ; 
+//         if(k == c.size() ) return total_sum ;
+//         int n = c.size() - k ; // Remove min subarray of this size to get max score
+//         int score = 0 ; 
+//         int ans = INT_MAX ; 
+//         vector<int>pre(c.size() , 0 ) ; 
+//         partial_sum(c.begin() , c.end() , pre.begin() ) ; //It'll fill the vec with prefix sum
  
-        //Sliding window
-        for(int i = 0 ; i <= k ; i++ ){
-            int j = i + n - 1 ; //Window length
-            if(i == 0 ) score = pre[j] ; 
-            else score = pre[j] - pre[i-1] ;
-            ans = min(ans , score ) ;
-        }
+//         //Sliding window
+//         for(int i = 0 ; i <= k ; i++ ){
+//             int j = i + n - 1 ; //Window length
+//             if(i == 0 ) score = pre[j] ; 
+//             else score = pre[j] - pre[i-1] ;
+//             ans = min(ans , score ) ;
+//         }
         
         
         
-        return total_sum-ans ;
+//         return total_sum-ans ;
+        
+        
+        
+        
+        //short M2
+//         https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/discuss/1202397/JS-Python-Java-C%2B%2B-or-Easy-Sliding-Window-Solution-w-Explanation
+//        https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/discuss/2198002/C%2B%2B-Solution-Using-Sliding-Window
+        
+        int total = 0 ; 
+         for (int i = 0; i < k ; i++) total += c[i];
+        int best = total ;
+        for (int i = k - 1, j = c.size() - 1; ~i; i--, j--)
+            total += c[j] - c[i] , best = max(best, total);
+        return best;
+        
+        
         
         
         
