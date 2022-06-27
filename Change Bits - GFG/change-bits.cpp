@@ -11,15 +11,21 @@ class Solution {
   public:
     vector<int> changeBits(int N) {
         // code here
-        int m = N , i = 0 , purana = N  ; 
-        while(m){
-            if( !(m&1) ){
-                N |= (1<<i)  ;
-            }
-            m >>= 1 ; 
-            i++ ;
-        }
-        return { N - purana  ,  N } ;
+        // int m = N , i = 0 , purana = N  ; 
+        // while(m){
+        //     if( !(m&1) ){
+        //         N |= (1<<i)  ;
+        //     }
+        //     m >>= 1 ; 
+        //     i++ ;
+        // }
+        // return { N - purana  ,  N } ;
+        
+        
+       
+        int bits = log2(N)+1;    // Getting Number of bits of the number.
+        int ans = pow(2,bits)-1; // Getting the Changed Number
+        return{ ans-N , ans } ;  
         
         
     }
