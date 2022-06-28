@@ -47,17 +47,13 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
             return a.first > b.first ;
         }  ) ; 
     
-        
-        // for(auto x : v ){
-        //     cout<<x.first<<"-->"<<x.second<<endl;
-        // }
+       
         unordered_set<int> set ; 
         int c = 0 ; 
         for(int i = 0 ; i < v.size() ; i++ ){
-            // if(v[i].first == 1 ) continue ; 
-            // set.insert(v[i].first) ; 
+        ; 
             while( v[i].first != 0 and  set.count(v[i].first) ) {
-                db2(v[i].first , v[i].second) ;
+               
                 v[i].first -= 1 ;
                 c++ ; 
             }
