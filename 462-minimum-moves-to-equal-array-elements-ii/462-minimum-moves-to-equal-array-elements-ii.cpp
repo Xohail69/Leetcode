@@ -23,7 +23,10 @@ public:
             ans += nums[n-1-i] - nums[i]; //Adding difference
         }
         
-        
+         // we can use nth_element to find the median in O(N) time without having to fully sort 
+        //  vector<int>::iterator mid = nums.begin() + nums.size() / 2;
+        // nth_element(nums.begin(), mid, nums.end());
+        // int ans = 0, median = nums[nums.size() / 2];
         
         
         return ans ; 
