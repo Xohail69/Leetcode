@@ -11,16 +11,16 @@ public:
         // return dp[n] ; 
         
         
-         if(n < 2) 
-            return n ;
-    	int a = 0, b = 1, c = 0;
-        for(int i = 1; i < n ; i++)
-        {
-            c = a + b;
-            a = b;
-            b = c;
-        }
-        return c;
+//          if(n < 2) 
+//             return n ;
+//     	int a = 0, b = 1, c = 0;
+//         for(int i = 1; i < n ; i++)
+//         {
+//             c = a + b;
+//             a = b;
+//             b = c;
+//         }
+//         return c;
         
         
         
@@ -35,8 +35,8 @@ public:
 // Time Complexity - O(1)
 // Space Complexity - O(1)
 
-//         double phi = (sqrt(5) + 1) / 2;     
-//         return round(pow(phi, N) / sqrt(5));
+        double phi = (sqrt(5) + 1) / 2;     
+        return round(pow(phi, n ) / sqrt(5));
         
         
     }
