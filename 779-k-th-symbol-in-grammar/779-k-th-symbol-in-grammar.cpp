@@ -9,7 +9,7 @@ public:
         int len = pow(2, n -1 ) ; 
         int mid = len/2 ;
         if(mid >= k  ) return solve(n-1 , k ) ; 
-        else return  !solve(n-1 , k - mid  ) ; 
+        else return  !solve(n-1 , k - mid   ) ; 
         
     }
     
