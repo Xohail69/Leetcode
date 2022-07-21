@@ -10,17 +10,33 @@
  */
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) {
-        if(!head ) return head ; 
-        ListNode* p , *q , *r ; 
-        p = head ; q = NULL ; r = NULL ; 
-        while(p){
-            r = q ; 
-            q = p ; 
-            p = p->next ; 
-            q->next = r ; 
-            
+    ListNode* ghead = NULL ; 
+    void rev(ListNode* q , ListNode *p  ){
+        if( p  ) {
+            rev( p , p->next  ) ;
+            p->next  = q ; 
+          
         }
-        return q ; 
+        else ghead = q ; 
+    }
+    ListNode* reverseList(ListNode* head) {
+//         if(!head ) return head ; 
+//         ListNode* p , *q , *r ; 
+//         p = head ; q = NULL ; r = NULL ; 
+//         while(p){
+//             r = q ; 
+//             q = p ; 
+//             p = p->next ; 
+//             q->next = r ; 
+            
+//         }
+//         return q ; 
+        
+        
+        //Using recursion 
+        rev(NULL , head ) ; 
+        return ghead ; 
+   
+        
     }
 };
