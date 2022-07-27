@@ -41,10 +41,30 @@ public:
        // if(root ) rev_pre(root) ; 
         
         //M3 using recursion 
-        if(root ){
+//         if(root ){
             
-            /*Move the left node to the right node*/
-          auto t = root->right ;
+//             /*Move the left node to the right node*/
+//           auto t = root->right ;
+//             root->right = root->left ; 
+//             root->left = NULL ; 
+            
+//             auto node = root ; 
+//              /*Move to the end of the prev left node which is the new right node*/
+//             while(node->right ) node = node->right  ;
+            
+            
+//               /*Append the right node to its end*/
+//             node->right = t ; 
+            
+//             flatten(root->right) ; 
+//         }
+            
+            
+            
+            //M4
+            //Above recursion can be converted into iteration as 
+            while(root) {
+                auto t = root->right ;
             root->right = root->left ; 
             root->left = NULL ; 
             
@@ -55,11 +75,16 @@ public:
             
               /*Append the right node to its end*/
             node->right = t ; 
+                
+                
+                root = root->right ; 
+                
+            }
             
-            flatten(root->right) ; 
             
             
-        }
+            
+        
         
         
         
