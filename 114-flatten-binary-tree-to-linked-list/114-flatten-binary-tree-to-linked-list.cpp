@@ -38,7 +38,40 @@ public:
         //M2 using reverse preorder traversal 
         
         //TC - O(n) & SC - O(n) recursion stack  
-       if(root ) rev_pre(root) ; 
+       // if(root ) rev_pre(root) ; 
+        
+        //M3 using recursion 
+        if(root ){
+            
+            /*Move the left node to the right node*/
+          auto t = root->right ;
+            root->right = root->left ; 
+            root->left = NULL ; 
+            
+            auto node = root ; 
+             /*Move to the end of the prev left node which is the new right node*/
+            while(node->right ) node = node->right  ;
+            
+            
+              /*Append the right node to its end*/
+            node->right = t ; 
+            
+            flatten(root->right) ; 
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
 };
