@@ -72,11 +72,12 @@ public:
             }
             
         }
-        string ans ;
-        for(int i = start ; i < end + 1 ; i++ ){
-            ans += s[i] ;
-        }
-        return ans ;
+        // string ans ;
+        // for(int i = start ; i < end + 1 ; i++ ){
+        //     ans += s[i] ;
+        // }
+        // return ans ;
+        return s.substr(start , end - start + 1 ) ; 
         
         
         
