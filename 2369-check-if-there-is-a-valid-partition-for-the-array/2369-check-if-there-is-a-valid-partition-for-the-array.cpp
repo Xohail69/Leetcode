@@ -79,30 +79,5 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
     }
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
 };
