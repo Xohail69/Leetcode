@@ -57,7 +57,7 @@ public:
         
         
         //DFS
-        int ans = 1 ; 
+        int ans = 1 ; //Node 0 
         dfs(0 , adj , visited , s , ans ) ; 
         return ans ; 
             
