@@ -13,35 +13,55 @@ public:
         
         
         
-        vector<int>dp (26 , 0 ) ; 
-        int ans(0) ;
-            for(auto x : s ){
+//         vector<int>dp (26 , 0 ) ; 
+//         int ans(0) ;
+//             for(auto x : s ){
                 
-                int et = x - 'a' ;
+//                 int et = x - 'a' ;
                 
-                //left limit 
-                for(int j = et ; j >=0 and j >= et - k ; j-- ){
-                    dp[et] = max(dp[et] , dp[j] + 1 ) ; 
+//                 //left limit 
+//                 for(int j = et ; j >=0 and j >= et - k ; j-- ){
+//                     dp[et] = max(dp[et] , dp[j] + 1 ) ; 
                     
-                    if(j == et and dp[j] == 0) {
-                     dp[j] = 1 ;
-                      ans = max(ans , dp[et]); continue;
-                    }
-                }
+//                     if(j == et and dp[j] == 0) {
+//                      dp[j] = 1 ;
+//                       ans = max(ans , dp[et]); continue;
+//                     }
+//                 }
                 
                 
-                //right limit 
-                for(int j = et+1 ; j < 26 and j <= et + k ; j++ ){
-                    dp[et] = max(dp[et] , dp[j] + 1 );
-                }
-                ans = max(ans , dp[et] ) ; 
+//                 //right limit 
+//                 for(int j = et+1 ; j < 26 and j <= et + k ; j++ ){
+//                     dp[et] = max(dp[et] , dp[j] + 1 );
+//                 }
+//                 ans = max(ans , dp[et] ) ; 
                 
-            }
-        return ans ; 
+//             }
+//         return ans ; 
     
    
         
+         map<char,int> m;
         
+        for(int i=s.size()-1;i>=0;i--)
+        {
+            int ans=0;
+             for(char a='a';a<='z';a++)
+             {
+                  if(abs(a-s[i])<=k)
+                  {
+                       ans=max(ans,m[a]);
+                  }
+             }
+            
+            m[s[i]]=ans+1;
+        }
+        
+        int a=0;
+        for(auto x:m)
+             a=max(a,x.second);
+        
+        return a;
         
         
         
