@@ -79,16 +79,16 @@ public:
         vector<string> board (n , string(n , '.' ) ) ; 
        
         
-        
-        solve1(0 , board , ans , n ) ;
-        return ans ; 
+        //M1
+//         solve1(0 , board , ans , n ) ;
+//         return ans ; 
         
         
         //Optimized 
-        // int m = 2*n - 1 ; 
-        // vector<int> leftR(n , 0 ) , upperD(m , 0 ) , lowerD(m , 0 ) ; 
-        // solve(0 , board , ans , n  , leftR , upperD , lowerD ) ; 
-        // return ans ; 
+        int m = 2*n - 1 ; 
+        vector<int> leftR(n , 0 ) , upperD(m , 0 ) , lowerD(m , 0 ) ; 
+        solve(0 , board , ans , n  , leftR , upperD , lowerD ) ; 
+        return ans ; 
         
         
         
