@@ -28,28 +28,28 @@ public:
         
         
         //Using counting sort 
-           unordered_map<int, int> cnt;
-        int n = arr.size() ; 
-        for (int x : arr) ++cnt[x];
-        vector<int>count(n + 1 , 0 ) ; 
-        for(auto [_ , freq] : cnt ) {
-            count[freq]++ ; 
-        }
+//            unordered_map<int, int> cnt;
+//         int n = arr.size() ; 
+//         for (int x : arr) ++cnt[x];
+//         vector<int>count(n + 1 , 0 ) ; 
+//         for(auto [_ , freq] : cnt ) {
+//             count[freq]++ ; 
+//         }
         
-        int ans = 0 , removed = 0 , half = n/2 , f = n ; 
-        while(removed < half ) {
+//         int ans = 0 , removed = 0 , half = n/2 , f = n ; 
+//         while(removed < half ) {
           
            
-            ans += 1;
-            while (count[f] == 0) --f;
-            removed += f ;
-            --count[f];
+//             ans += 1;
+//             while (count[f] == 0) --f;
+//             removed += f ;
+//             --count[f];
             
             
             
          
-        }
-        return ans ; 
+//         }
+//         return ans ; 
         
         
         
@@ -59,15 +59,15 @@ public:
         
         
 //         //Using priority queue 
-//         unordered_map<int, int>mp;
-//         priority_queue<int> pq;
-// 		for(auto num : arr) mp[num]++;                  
-//         for(auto [num, freq] : mp) pq.push(freq);
-//         for(int deleted{}, ans{}; ;pq.pop()) {
-//             deleted += pq.top(), ans++;
-//             if(deleted >= size(arr) / 2) return ans;    
-//         }
-//         return -1;
+        unordered_map<int, int>mp;
+        priority_queue<int> pq;
+		for(auto num : arr) mp[num]++;                  
+        for(auto [num, freq] : mp) pq.push(freq);
+        for(int deleted{}, ans{}; ;pq.pop()) {
+            deleted += pq.top(), ans++;
+            if(deleted >= size(arr) / 2) return ans;    
+        }
+        return -1;
         
         
         
