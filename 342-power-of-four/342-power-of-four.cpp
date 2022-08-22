@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isPowerOfFour(int num ) {
-         return num > 0 && (num&(num-1)) == 0 && (num & 0x55555555) != 0;
+         // 'return num > 0 && (num&(num-1)) == 0 && (num & 0x55555555) != 0;
         // https://leetcode.com/problems/power-of-four/discuss/772428/C%2B%2B-Three-Solution-or-Explain-or-Naive-orBit-Manipulation
         
         
@@ -10,7 +10,7 @@ public:
  // 0x55555555 is a hexametrical number，it is 1010101010101010101010101010101 in binary with a length of 32. To make sure the 1 locates in the odd location.
             
             
-             // return num > 0 && (num & (num - 1)) == 0 && (num - 1) % 3 == 0;
+             return num > 0 && (num & (num - 1)) == 0 && (num - 1) % 3 == 0;
         
     
 // (4^n - 1) % 3 == 0
