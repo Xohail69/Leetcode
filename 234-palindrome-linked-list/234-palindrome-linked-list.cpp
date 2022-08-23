@@ -17,7 +17,20 @@ public:
         }
         return 1 ; 
     }
-    
+        ListNode* reverse(ListNode* head) {
+        if(!head ) return head ; 
+        ListNode* p , *q , *r ; 
+        p = head ; q = NULL ; r = NULL ; 
+        while(p){
+            r = q ; 
+            q = p ; 
+            p = p->next ; 
+            q->next = r ; 
+            
+        }
+        return q ; 
+        
+        }
     bool isPalindrome(ListNode* head) {
         vector<int> v ;
         for(auto n = head ; n ; n = n->next ){
@@ -25,6 +38,21 @@ public:
         }
         return pali(v) ;
         
+        ListNode *p , *q ; 
+        p = q = head ; 
+        ListNode *t  ; 
+        while( q->next ){
+            p = p->next ; 
+            q = q->next->next ; 
+            if( !q ) t = reverse(p) ; 
+            else if( !q->next ) t = reverse(p->next ) ;
+        }
+        while(t ){
+            if(t->val != head->val) return 0 ; 
+            t = t->next ; 
+            head = head->next ; 
+        }
+        return 1 ; 
         
     }
 };
