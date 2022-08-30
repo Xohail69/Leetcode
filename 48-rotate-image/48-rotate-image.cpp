@@ -27,15 +27,15 @@ public:
         
 //         M2
 //         First do transpose then reverse row wise 
-//          int n = matrix.size() ; 
-//         for(int i = 0  ; i < n ; i++ ){
-//             for(int j = i + 1 ; j < n ; j++ ){
-//                 swap(matrix[i][j] , matrix[j][i] ) ;
-//             }    
-//         }
-//         for(auto &x : matrix ){
-//             reverse(begin(x) , end(x) ) ;
-//         }
+         int n = matrix.size() ; 
+        for(int i = 0  ; i < n ; i++ ){
+            for(int j = i + 1 ; j < n ; j++ ){
+                swap(matrix[i][j] , matrix[j][i] ) ;
+            }    
+        }
+        for(auto &x : matrix ){
+            reverse(begin(x) , end(x) ) ;
+        }
         
         
         
@@ -45,18 +45,18 @@ public:
         
         
 //         M3 This rotates ring by ring
-          int n = matrix.size();
-        int a = 0;
-        int b = n-1;
-        while(a<b){
-            for(int i=0;i<(b-a);++i){
-                swap(matrix[a][a+i], matrix[a+i][b]);
-                swap(matrix[a][a+i], matrix[b][b-i]);
-                swap(matrix[a][a+i], matrix[b-i][a]);
-            }
-            ++a;
-            --b;
-        }
+//           int n = matrix.size();
+//         int a = 0;
+//         int b = n-1;
+//         while(a<b){
+//             for(int i=0;i<(b-a);++i){
+//                 swap(matrix[a][a+i], matrix[a+i][b]);
+//                 swap(matrix[a][a+i], matrix[b][b-i]);
+//                 swap(matrix[a][a+i], matrix[b-i][a]);
+//             }
+//             ++a;
+//             --b;
+//         }
         
         
         
