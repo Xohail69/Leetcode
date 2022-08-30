@@ -45,34 +45,34 @@ public:
         
         
 //         M3 This rotates ring by ring
-//           int n = matrix.size();
-//         int a = 0;
-//         int b = n-1;
-//         while(a<b){
-//             for(int i=0;i<(b-a);++i){
-//                 swap(matrix[a][a+i], matrix[a+i][b]);
-//                 swap(matrix[a][a+i], matrix[b][b-i]);
-//                 swap(matrix[a][a+i], matrix[b-i][a]);
-//             }
-//             ++a;
-//             --b;
-//         }
+          int n = matrix.size();
+        int a = 0;
+        int b = n-1;
+        while(a<b){
+            for(int i=0;i<(b-a);++i){
+                swap(matrix[a][a+i], matrix[a+i][b]);
+                swap(matrix[a][a+i], matrix[b][b-i]);
+                swap(matrix[a][a+i], matrix[b-i][a]);
+            }
+            ++a;
+            --b;
+        }
         
         
         
 
-//         M5
-          int n = matrix.size();
-        for (int i = 0; i < (n + 1) / 2; i ++) {
-            for (int j = 0; j < n / 2; j++) {
-                int k = n - 1 ; 
-                int temp = matrix[k - j][i];
-                matrix[k - j][i] = matrix[k - i][n - j - 1];
-                matrix[k - i][k - j] = matrix[j][k -i];
-                matrix[j][k - i] = matrix[i][j];
-                matrix[i][j] = temp;
-            }
-        }
+//         M5  Rotate Groups of Four Cells
+        //   int n = matrix.size(); 
+        // for (int i = 0; i < (n + 1) / 2; i ++) {
+        //     for (int j = 0; j < n / 2; j++) {
+        //         int k = n - 1 ; 
+        //         int temp = matrix[k - j][i];
+        //         matrix[k - j][i] = matrix[k - i][n - j - 1];
+        //         matrix[k - i][k - j] = matrix[j][k -i];
+        //         matrix[j][k - i] = matrix[i][j];
+        //         matrix[i][j] = temp;
+        //     }
+        // }
         
         
         
