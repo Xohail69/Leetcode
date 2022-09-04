@@ -69,11 +69,11 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
         vector<vector<int>> ans ; 
         dfs(root , 0 , 0 ) ;
         for(auto &[f , s ] : m ) {
-          ans.push_back({}) ; 
+          vector<int> col ; 
             for(auto &[f1 , s1 ] : s ){
-                for(auto x : s1 )
-                    ans.back().push_back(x) ; 
+                col.insert(col.end() , s1.begin() , s1.end() ) ; 
             }
+            ans.push_back(col) ; 
             
             
             
