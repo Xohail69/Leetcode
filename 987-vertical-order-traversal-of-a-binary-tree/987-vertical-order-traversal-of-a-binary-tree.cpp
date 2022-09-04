@@ -50,10 +50,8 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
     
     
     
-    
-    
-    
-    
+//     mapping is done this way :
+//     col --> row --> multiset
     
     
     map<int,map<int,multiset<int>>> m ;  
@@ -66,19 +64,77 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
     }
     vector<vector<int>> verticalTraversal(TreeNode* root) {
         if(!root) return {} ; 
-        vector<vector<int>> ans ; 
-        dfs(root , 0 , 0 ) ;
-        for(auto &[f , s ] : m ) {
-          vector<int> col ; 
-            for(auto &[f1 , s1 ] : s ){
-                col.insert(col.end() , s1.begin() , s1.end() ) ; 
+//         vector<vector<int>> ans ; 
+//         dfs(root , 0 , 0 ) ;
+//         for(auto &[f , s ] : m ) { //moving into the column
+//           vector<int> col ; 
+//             for(auto &[f1 , s1 ] : s ){ //moving into the row & inserting each multiset into ans  
+//                 col.insert(col.end() , s1.begin() , s1.end() ) ; 
+//             }
+//             ans.push_back(col) ; 
+           
+//         }
+//         return ans ; 
+        
+        
+        
+        
+        
+        
+        
+//         BFS 
+        queue<pair<TreeNode*,int>> q ; //pair is {node , column} 
+//         Row gets taken care auto cuz we are traversing levelwise 
+        q.push({root , 0 }) ;
+        map<int,vector<int>>  m ; 
+        while(q.size() ) {
+            int n = q.size() ; 
+            map<int,multiset<int>> mp ; 
+            while(n-- ){
+                auto t = q.front() ; 
+                q.pop() ; 
+                auto node = t.first  ;
+                auto col = t.second ; 
+                mp[col].insert(node->val) ;
+              
+                if(node->left){
+                    q.push({node->left , col-1}) ; 
+                }
+                if(node->right){
+                    q.push({node->right , col + 1} ) ; 
+                }
             }
-            ans.push_back(col) ; 
-            
-            
-            
-            
+          
+             for(auto &[f , s ]: mp )
+                for(auto &it: s)
+                    m[f].push_back(it );
+        }
+        vector<vector<int>> ans; 
+        for(auto &[f, s] : m){
+            ans.push_back(s) ;
         }
         return ans ; 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+            
     }
 };
