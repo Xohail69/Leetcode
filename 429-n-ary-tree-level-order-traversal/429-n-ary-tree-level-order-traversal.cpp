@@ -27,17 +27,17 @@ public:
         q.push(root) ; 
         while(q.size() ) {
             int n = q.size() ; 
-            vector<int> v ; 
+            ans.emplace_back() ; 
+            // vector<int> v ; 
             while(n--){
                 auto t = q.front() ; 
-                v.push_back(t->val) ; 
+                ans.back().push_back(t->val) ; 
                 q.pop() ;
-                for(int i = 0 ; i < t->children.size() ; i++ ){
-                    if( t->children[i] ) q.push(t->children[i] ) ; 
-                }
+               for(auto &child : t->children )
+                   q.push(child) ;
                 
             }
-            ans.push_back(v) ;
+            // ans.push_back(v) ;
         }
         return ans; 
     }
