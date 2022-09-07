@@ -24,11 +24,28 @@ public:
         ans +=')' ;
      
     }
+    string dfs(TreeNode* t ){
+         
+        if (!t) return "";
+        string s = to_string(t->val);
+        if (t->left)  s += "(" + tree2str(t->left) + ")";
+        else if (t->right) s += "()";
+        if (t->right) s += "(" + tree2str(t->right) + ")";
+        return s; 
+    }
     string tree2str(TreeNode* root) {
-        string t ; 
-        helper(root , t ) ;
-        t = t.substr(1 , t.size() - 2 ) ;
-        return t ; 
+//         Mine
+        // string t ; 
+        // helper(root , t ) ;
+        // t = t.substr(1 , t.size() - 2 ) ;
+        // return t ; 
         
+        
+       
+        
+        return dfs(root) ; 
+        
+        
+ 
     }
 };
