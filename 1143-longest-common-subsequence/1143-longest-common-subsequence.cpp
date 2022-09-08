@@ -2,6 +2,7 @@ class Solution {
 public:
         int dp[1001][1001] ;
    Solution(){ memset(dp , -1 , sizeof(dp)) ; }
+  
      int lcs(int x, int y, string &s1, string &s2)
     {   
        
