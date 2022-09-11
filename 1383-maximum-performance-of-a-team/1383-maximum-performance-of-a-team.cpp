@@ -10,8 +10,14 @@ public:
         priority_queue<int,vector<int>,greater<int>> pq ; 
         for(auto &[e,s] : eng ){
             speed_sum += s ; 
+             // put the speed to priority queue
             pq.push(s) ;
+            // we only need to choose at most k engineers
+            // hence if the queue size is greater than k
+            // we need to remove a candidate
             if(pq.size() >  k ){
+                
+                  // who to remove? of course the one with smallest speed
                 speed_sum -= pq.top() ; 
                 pq.pop() ;
             }
