@@ -13,7 +13,8 @@ public:
         
     }
     int maximumScore(vector<int>& nums, vector<int>& mult ) {
-        vector<vector<int>>dp(1e3 , vector<int>(1e3 , INT_MIN )) ; 
+        int m = mult.size()  ; 
+        vector<vector<int>>dp(m , vector<int>(m , INT_MIN )) ; 
        return helper(0 , 0 , nums.size() - 1 , nums , mult , dp ) ; 
     }
 };
