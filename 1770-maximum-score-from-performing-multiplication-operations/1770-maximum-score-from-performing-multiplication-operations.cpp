@@ -31,8 +31,44 @@ public:
         
         
         
-        int m = mult.size()  ; 
-        vector<vector<int>>dp(m , vector<int>(m , INT_MIN )) ; 
-       return helper(0 , 0 , nums.size() - 1 , nums , mult , dp ) ; 
+//         int m = mult.size()  ; 
+//         vector<vector<int>>dp(m , vector<int>(m , INT_MIN )) ; 
+//        return helper(0 , 0 , nums.size() - 1 , nums , mult , dp ) ; 
+        
+        
+        
+        
+        
+        
+        
+        
+              
+        int m = mult.size() , n = nums.size() ; 
+        vector<vector<int>>dp(m+1 , vector<int>(m+1 , 0 )) ; 
+        for(int i = m -1 ; i >=0 ; i-- ){
+            for(int j = i ; j >=0 ; j-- ){
+                dp[i][j] = max( mult[i]*nums[j] + dp[i+1][j+1] , mult[i]*nums[n-(i-j)-1] + dp[i+1][j] ) ;
+            }
+        }
+ return dp[0][0] ;        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 };
