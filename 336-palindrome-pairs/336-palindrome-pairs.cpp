@@ -4,6 +4,7 @@ struct TrieNode
     int curIndex=-1;
     vector<int> wordIndex;
 };
+// https://leetcode.com/problems/palindrome-pairs/discuss/2585633/C%2B%2B-or-Brute-or-Hashmap-or-Trie-or-TLE-Fixed
 class Solution
 {
     bool isPalindrome(string &s, int i, int j)
