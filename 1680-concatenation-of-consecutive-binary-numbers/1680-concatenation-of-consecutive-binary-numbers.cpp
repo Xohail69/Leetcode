@@ -23,11 +23,26 @@ public:
 //         } 
 //         return ans; 
         
+        // long ans = 0 ; 
+        // for(int i = 1 ; i <= n ; i++ ){
+        //     int len = numberOfBits(i) ; 
+        //     ans = ( (ans<<len)%mod + i )%mod ; 
+        // }
+        // return ans ; 
+        
+        
+        
+        // We spent O(logN) time for calculating the len. We can reduce it to O(1) with the help of __builtin_clz which returns the number of leading zeros for a number, so len = 32 - __builtin_clz(i).
+         
         long ans = 0 ; 
         for(int i = 1 ; i <= n ; i++ ){
-            int len = numberOfBits(i) ; 
+            int len = 32 - __builtin_clz(i) ; 
             ans = ( (ans<<len)%mod + i )%mod ; 
         }
         return ans ; 
+        
+        
+        
+        
     }
 };
