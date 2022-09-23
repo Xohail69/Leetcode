@@ -34,15 +34,25 @@ public:
         
         // We spent O(logN) time for calculating the len. We can reduce it to O(1) with the help of __builtin_clz which returns the number of leading zeros for a number, so len = 32 - __builtin_clz(i).
          
-        long ans = 0 ; 
+        // long ans = 0 ; 
+        // for(int i = 1 ; i <= n ; i++ ){
+        //     int len = 32 - __builtin_clz(i) ; 
+        //     ans = ( (ans<<len)%mod + i )%mod ; 
+        // }
+        // return ans ; 
+        
+        
+        
+//          with the observation that the len only increment when the i is a power of 2, we can increment len only when i has a single bit 1. We can check this via (i & (i - 1)) == 0. 
+        
+        
+         
+           long ans = 0 , len = 0  ; 
         for(int i = 1 ; i <= n ; i++ ){
-            int len = 32 - __builtin_clz(i) ; 
+            if ((i & (i - 1)) == 0) ++len;
             ans = ( (ans<<len)%mod + i )%mod ; 
         }
         return ans ; 
-        
-        
-        
         
     }
 };
