@@ -51,8 +51,6 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
         
         if(!root->left and !root->right and  target == root->val  ){
             ans.push_back(v) ; 
-            v.pop_back() ; 
-            return ; 
         
         }
  
@@ -68,7 +66,7 @@ template <class T> T mfloor(T a, T b) {if (a % b == 0) return a / b; else return
     
     
     vector<vector<int>> pathSum(TreeNode* root, int target  ) {
-        // if(target == 0 ) return {} ; 
+
         vector<int> v ; 
         dfs(root , v , target  ) ; 
         return ans ; 
