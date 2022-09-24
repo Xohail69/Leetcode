@@ -11,12 +11,30 @@
  */
 class Solution {
 public:
+    void inorder(TreeNode*root , vector<int> &v ) {
+        if(!root) { v.push_back(INT_MAX) ;  return ;} 
+        inorder(root->left , v) ;
+         inorder(root->right , v) ; 
+        v.push_back(root->val) ; 
+       
+    }
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        if(!p and !q ) return 1 ; 
+//         'if(!p and !q ) return 1 ; 
     
-        if(!p or !q or p->val != q->val ) return 0 ;
+//         if(!p or !q or p->val != q->val ) return 0 ;
  
         
-        return isSameTree(p->left , q->left ) and isSameTree(p->right , q->right ) ;
+//         return isSameTree(p->left , q->left ) and isSameTree(p->right , q->right ) ;
+        
+        
+        
+        
+        vector<int> a , b ; 
+        inorder(p , a ) ; 
+        inorder(q , b ) ; 
+        return a==b ; 
+        
+        
+        
     }
 };
