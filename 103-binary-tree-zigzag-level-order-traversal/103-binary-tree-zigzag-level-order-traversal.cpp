@@ -62,30 +62,66 @@ public:
         
         
 //         Using two stacks 
-        stack<TreeNode*> a , b ; 
-        stack<TreeNode*> *s1 , *s2 ;
-        s1 = &a , s2 = &b ; 
-        a.push(root) ; 
-        while(!s1->empty() ){
-            vector<int> v ; 
-            while(!s1->empty() ){
-                auto t = s1->top() ; 
-                s1->pop() ; 
-                v.push_back(t->val) ; 
-                if(s1 != &b and t->left ) s2->push(t->left) ; 
-                if(t->right) s2->push(t->right) ; 
-                if(s1 == &b and t->left ) s2->push(t->left) ;
+//         All you have to do is do the standard bfs(with two stacks instead) with two adjustments -
+
+// instead of dequeueing from a queue, pop() from our first stack pointer. Simmilarly instead of enqueueing push to our second stack pointer.
+// In queue you will push in left child then right child in every level. Here we alternately first push right and left (why? because you want to have level two in reverse order), then in second iteration left and right and so on.
+// At the end of each level just swap the stack pointers before moving to next level.
+//         stack<TreeNode*> a , b ; 
+//         stack<TreeNode*> *s1 , *s2 ;
+//         s1 = &a , s2 = &b ; 
+//         a.push(root) ; 
+//         while(!s1->empty() ){
+//             vector<int> v ; 
+//             while(!s1->empty() ){
+//                 auto t = s1->top() ; 
+//                 s1->pop() ; 
+//                 v.push_back(t->val) ; 
+//                 if(s1 != &b and t->left ) s2->push(t->left) ; 
+//                 if(t->right) s2->push(t->right) ; 
+//                 if(s1 == &b and t->left ) s2->push(t->left) ;
                 
+//             }
+//             swap(s1 , s2  ) ; 
+//             ans.push_back(v) ; 
+//         }
+//         return ans; 
+        
+        
+        
+//         Using deque
+          deque<TreeNode*> dq;
+        dq.push_back(root);
+        bool isLTR = true;
+        while(!dq.empty()) {
+            int n = dq.size();
+            vector<int> currLevel;
+            if(isLTR) {
+                isLTR = false;
+                for(int i=0;i<n;++i) {
+                    auto curr = dq.front();
+                    dq.pop_front();
+                    currLevel.push_back(curr->val);
+                    if(curr->left)
+                        dq.push_back(curr->left);
+                    if(curr->right)
+                        dq.push_back(curr->right);
+                }
+            } else {
+                isLTR = true;
+                for(int i=0;i<n;++i) {
+                    auto curr = dq.back();
+                    dq.pop_back();
+                    currLevel.push_back(curr->val);
+                    if(curr->right)
+                        dq.push_front(curr->right);
+                    if(curr->left)
+                        dq.push_front(curr->left);
+                }
             }
-            swap(s1 , s2  ) ; 
-            ans.push_back(v) ; 
+            ans.push_back(currLevel);
         }
-        return ans; 
-        
-        
-        
-        
-        
+        return ans;
         
         
         
