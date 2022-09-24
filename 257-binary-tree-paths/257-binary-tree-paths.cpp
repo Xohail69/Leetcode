@@ -12,18 +12,25 @@
 class Solution {
 public:
     vector<string>ans ; 
-    void dfs(TreeNode* root , string s){
+    void dfs(TreeNode* root , string &s){
            if(!root ) return ; 
-        s += to_string(root->val) ; 
-        s += "->" ; 
+        string t = s; 
+        t += to_string(root->val) ; 
+        t += "->" ; 
         if(!root->left and !root->right ) {
-            s.pop_back() ; 
-            s.pop_back() ;
-            ans.push_back(s) ;
+            t.pop_back() ; 
+            t.pop_back() ;
+            ans.push_back(t) ;
+            return ;
+            
         }
-     
-        dfs(root->left , s ) ; 
-         dfs(root->right , s ) ; 
+        else{
+        dfs(root->left , t ) ; 
+         dfs(root->right , t ) ;
+        }
+      
+        
+        
     }
     vector<string> binaryTreePaths(TreeNode* root) {
         string t ; 
