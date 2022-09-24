@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
- 
+ #include <tuple>
     
     
     vector<vector<int>> ans ; 
@@ -40,14 +40,51 @@ public:
     
     vector<vector<int>> pathSum(TreeNode* root, int target  ) {
 
-        vector<int> v ; 
-        dfs(root , v , target  ) ; 
-        return ans ; 
+        // vector<int> v ; 
+        // dfs(root , v , target  ) ; 
+        // return ans ; 
+        
+        
+//         Using Bfs 
+        if( !root ) return {} ;
+        queue<tuple<TreeNode*,int,vector<int>>> q ;
+        vector<int> v = {root->val }  ;
+//       tuple = { node , current sum , current path }
+        auto tup = make_tuple(root , root->val , v ) ;
+       
+        q.push(tup ) ;
+        while(q.size() ){
+            auto t = q.front() ; 
+            q.pop() ;
+            auto node = get<0>(t) ; 
+            int currSum = get<1>(t) ; 
+            auto currPath = get<2>(t) ;
+            
+            if(!node->left and !node->right and currSum == target ){
+                ans.push_back(currPath) ; 
+            }
+            
+            if(node->left){
+//                 left path 
+                vector<int> lp = currPath ; 
+                int vali = node->left->val ; 
+                lp.push_back(vali) ; 
+                q.push(make_tuple(node->left , currSum + vali , lp )) ; 
+            }
+              if(node->right){
+//                   right path 
+                vector<int> rp = currPath ;
+                   int vali = node->right->val ; 
+                rp.push_back(vali) ; 
+                q.push(make_tuple(node->right , currSum + vali , rp )) ; 
+            }
+            
+            
+        }
         
         
         
-        
-        
+        return ans; 
         
         
         
