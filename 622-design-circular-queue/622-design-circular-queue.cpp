@@ -3,13 +3,13 @@ public:
     vector<int>v ;
     int front , rear ;
     MyCircularQueue(int k) {
-        v.resize(k+1 , -1 ) ;
+        v.resize(k+1 ) ;
         front = 0 ;
         rear = 0 ;
     }
     
     bool enQueue(int value) {
-        if( (rear+1)%v.size() == front ) {
+        if( isFull() ) {
             return false ;
         }
         rear = (rear+1)%v.size() ; 
@@ -18,7 +18,7 @@ public:
     }
     
     bool deQueue() {
-          if(front == rear ){
+          if(isEmpty() ){
             return 0 ;
         }
         front = (front + 1 )%v.size() ; 
@@ -28,10 +28,12 @@ public:
     }
     
     int Front() {
+         if(isEmpty() ) return -1 ;
         return v[ (front+1)%v.size() ] ; 
     }
     
     int Rear() {
+        if(isEmpty() ) return -1 ;
         return v[rear] ; 
     }
     
