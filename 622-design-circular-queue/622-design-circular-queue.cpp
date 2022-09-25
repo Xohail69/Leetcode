@@ -22,7 +22,7 @@ public:
             return 0 ;
         }
         front = (front + 1 )%v.size() ; 
-        v[front] = -1 ;
+        // v[front] = -1 ;
         return 1;
          
     }
