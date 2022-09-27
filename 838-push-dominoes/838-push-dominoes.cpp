@@ -17,18 +17,21 @@ public:
         }
         string ans(n , '.')  ; 
         for(int i = 0 ; i < n ; i++ ){
-            if(l[i] != -1 and r[i] != -1 ){
-                int diff1 = abs(i-l[i]) ;
-                int diff2 = abs(i-r[i]) ;
-                if(diff1 == diff2 ) ans[i] = '.' ;
-                else 
-                ans[i] = abs(i-l[i]) < abs(i-r[i]) ? 'L' : 'R' ;
+                       
+            if(d[i] == '.' ){
+                int leftdiff = l[i] == -1 ? INT_MAX : abs(l[i] - i ) ; 
+                int rightdiff = r[i] == -1 ? INT_MAX : abs(r[i] - i ) ; 
+                if(leftdiff == rightdiff ) 
+                    ans[i] = '.' ; 
+                else if(leftdiff < rightdiff ) 
+                    ans[i] = 'L' ; 
+                else ans[i] = 'R' ; 
             }
-            else if(l[i] == -1 and r[i] == -1 ){
-                ans[i] = '.' ;
-            }
-            else if(l[i] == -1 ) ans[i] = 'R' ;
-            else if(r[i] == -1 ) ans[i] = 'L' ;
+            else ans[i] = d[i] ; 
+            
+            
+            
+            
         }
         return ans; 
         
