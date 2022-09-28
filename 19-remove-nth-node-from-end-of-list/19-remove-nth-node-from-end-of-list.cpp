@@ -11,19 +11,34 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode *p , *q ; 
-        p = head , q = head ; 
-        int m = n ; 
-        while(n-- ){
-            p = p->next ; 
-        }
-        if(!p ) return head->next ;
-        while(p and p->next){
-            q = q->next ;
-            p = p->next ; 
-        }
-        if(q and q->next ) q->next = q->next->next ; 
-        return head ; 
+        // 'ListNode *p , *q ; 
+        // p = head , q = head ; 
+        // int m = n ; 
+        // while(n-- ){
+        //     p = p->next ; 
+        // }
+        // if(!p ) return head->next ;
+        // while(p and p->next){
+        //     q = q->next ;
+        //     p = p->next ; 
+        // }
+        // if(q and q->next ) q->next = q->next->next ; 
+        // return head ; '
+        
+        ListNode *fast = head, *slow = head;
+	while(n--) fast = fast -> next;      // iterate first n nodes using fast
+	if(!fast) return head -> next;       // if fast is already null, it means we have to delete head itself. So, just return next of head
+	while(fast -> next)               // iterate till fast reaches the last node of list
+		fast = fast -> next, slow = slow -> next; 
+        
+        auto t = slow->next ; 
+     
+	slow -> next = slow -> next -> next; // remove the nth node from last
+         delete t ; 
+	return head;
+        
+        
+        
         
     }
 };
