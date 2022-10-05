@@ -32,7 +32,32 @@ public:
             return t ; 
         }
         
-        dfs(root , depth-1 , val ) ; 
+        // dfs(root , depth-1 , val ) ; 
+//         BFS
+        queue<TreeNode*> q ; 
+        q.push(root ) ; 
+        int d = 1 ; 
+        while(d < depth - 1 ){
+            int n = q.size()  ; 
+            while(n--){
+                auto t = q.front() ; 
+                q.pop() ; 
+                if(t->left) q.push(t->left) ; 
+                if(t->right) q.push(t->right) ; 
+            }
+            d++ ; 
+        }
+        while(q.size() ){
+            auto node = q.front() ; 
+            q.pop() ; 
+            TreeNode *t = node->left ; 
+            node->left = new TreeNode(val , t , NULL ) ; 
+            t = node->right ; 
+            node->right = new TreeNode(val , NULL , t ) ; 
+        }
+        
+      
+        
         return root ; 
     }
 };
