@@ -3,7 +3,7 @@
 
 # https://leetcode.com/problems/delete-duplicate-emails/discuss/2099682/SQL-or-3-Easy-Sols-or-Well-Explained-or-JOINor-MIN-%2B-GROUP
 
-
+# https://leetcode.com/problems/delete-duplicate-emails/discuss/2627589/MY-SQL-oror-SOLUTION
 
 
 DELETE P1
