@@ -6,6 +6,12 @@
 # https://leetcode.com/problems/delete-duplicate-emails/discuss/2627589/MY-SQL-oror-SOLUTION
 
 
-DELETE P1
-FROM Person P1 , Person P2 
-WHERE P1.email = P2.email AND P1.id > P2.id ;
+# DELETE P1
+# FROM Person P1 , Person P2 
+# WHERE P1.email = P2.email AND P1.id > P2.id ;
+
+
+DELETE 
+FROM 
+Person WHERE Id NOT IN 
+(SELECT * FROM(SELECT MIN(ID) FROM Person GROUP BY Email) as p ) ; 
