@@ -2,6 +2,16 @@ class Node {
     public:
     bool isEnd = false ; 
     Node *links[26] ; 
+    bool containsKey(char c ){
+        return links[c- 'a'] != NULL  ; 
+    }
+    void put(char c , Node* node ){
+        links[c - 'a' ] = node ; 
+    }
+    Node* get(char c ){
+        return links[c - 'a'] ; 
+    }
+    
 };
 class Trie {
 public:
@@ -13,10 +23,10 @@ public:
     void insert(string s) {
         Node *node  = root ; 
         for(int i = 0 ; i < s.size() ; i++  ){
-            if( !node->links[s[i] - 'a']  ){
-                node->links[s[i] - 'a' ] = new Node() ; 
+            if( !node->containsKey(s[i]) ){
+                 node->put(s[i] , new Node() ) ; 
             }
-            node = node->links[s[i] - 'a'] ; 
+            node = node->get(s[i]); 
         }
         node->isEnd = 1 ;
     }
@@ -24,9 +34,9 @@ public:
     bool search(string s ) {
         Node *node = root  ; 
         for(int i = 0 ; i < s.size() ; i++ ){
-            if( !node->links[s[i] - 'a' ])
+            if( !node->containsKey(s[i]) )
                 return  0 ; 
-            node = node->links[s[i] - 'a'] ; 
+            node = node->get(s[i]) ; 
         }
         return node->isEnd ; 
     }
@@ -34,9 +44,9 @@ public:
     bool startsWith(string s) {
           Node *node = root  ; 
         for(int i = 0 ; i < s.size() ; i++ ){
-            if( !node->links[s[i] - 'a' ])
+            if( !node->containsKey(s[i]) )
                 return  0 ; 
-            node = node->links[s[i] - 'a'] ; 
+            node = node->get(s[i]) ; 
         }
         return 1 ; 
     }
