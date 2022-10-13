@@ -12,13 +12,14 @@ public:
         ListNode *p  , *q ; 
         p = node  ; 
         q = node->next ; 
-        while( q ){
-            swap(p->val , q->val ) ; 
-            if(!q->next ) p->next = NULL ;
-            p = p->next ; 
-            q = q->next ; 
-        }
-        // p->next = NULL ; 
-        // delete q ; 
+        // while( q ){
+        //     swap(p->val , q->val ) ; 
+        //     if(!q->next ) p->next = NULL ;
+        //     p = p->next ; 
+        //     q = q->next ; 
+        // // }
+       swap(p->val , q->val ) ; 
+        p->next  = q->next ; 
+        delete q ;
     }
 };
