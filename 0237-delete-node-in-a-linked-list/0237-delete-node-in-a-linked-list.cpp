@@ -18,8 +18,13 @@ public:
         //     p = p->next ; 
         //     q = q->next ; 
         // // }
-       swap(p->val , q->val ) ; 
-        p->next  = q->next ; 
-        delete q ;
+       // swap(p->val , q->val ) ; 
+        // p->next  = q->next ; 
+        // delete q ;
+        
+        swap(*p , *q ) ; 
+        delete q ; 
+        
+        
     }
 };
