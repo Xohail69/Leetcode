@@ -10,7 +10,7 @@ public:
         return 1 ; 
     }
     int ans = 0 ; 
-    void sub(int i , string s , vector<string>&a ){
+    void sub(int i , string &s , vector<string>&a ){
         if(i == a.size() ){
             if(isValid(s ) ){
                 int n = s.size() ; 
