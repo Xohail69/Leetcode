@@ -21,7 +21,6 @@ public:
         for(int i = -n +1 ; i < n ; i++ ){
             for(int j = -n+1 ; j < n ; j++ ){
                 ans = max(ans , shift(i , j , a , b ) ) ;
-                // ans = max(ans , shift(i , j , b , a ) ) ; 
             }
         }
         return ans ; 
