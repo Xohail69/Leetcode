@@ -39,6 +39,8 @@ public:
     
     void solve(vector<vector<char>> &grid , int i , int j , vector<string> &ans , Node *node ){
         int ix = grid[i][j] - 'a' ; 
+        
+         //If the trie doesn't have the current char OR cell is Visited
         if( grid[i][j] == '$' or !node->links[ix] )
             return ; 
         node = node->links[ix] ; 
@@ -48,7 +50,8 @@ public:
         }
         int n = grid.size() , m = grid[0].size() ; 
         auto c = grid[i][j] ; 
-        grid[i][j] = '$' ; 
+        
+        grid[i][j] = '$' ; //marking as visited 
         
         if(i > 0 )
             solve(grid , i - 1 , j , ans , node ) ;
@@ -60,7 +63,7 @@ public:
             solve(grid , i , j + 1 , ans , node ) ; 
         
         
-        grid[i][j] = c ; 
+        grid[i][j] = c ; //backtrack
         
     }
     
@@ -69,9 +72,7 @@ public:
         
         Trie t ; 
         for(auto &x : words  ){
-           
                 t.insert(x) ; 
-
         }
         vector<string> ans ; 
         for(int i = 0 ; i < board.size() ; i++ ){
